@@ -20,7 +20,8 @@
 	</style>
 </head>
 <body>
-	<div class="container">
+
+	<div class="">
 	@include('website.menu')
 
 	@yield('content')

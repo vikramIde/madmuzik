@@ -1,4 +1,4 @@
-<div id="top-bar">
+	<div id="top-bar">
 		<div class="container">
 			<div id="site-description">Welcome to MadMuzik.net.</div>
 			<ul id="top-links">
@@ -24,7 +24,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href=""><img src="images/logo.png" alt="MadMuzik" /></a>
+					<a class="navbar-brand" href=""><img src="{{asset('/images/logo.png')}}" alt="MadMuzik" /></a>
 				</div>
 				<div class="collapse navbar-collapse" id="main-nav">
 					<ul class="nav navbar-nav navbar-right">

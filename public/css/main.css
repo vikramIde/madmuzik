@@ -212,7 +212,7 @@ blockquote.right {
   background: #1e1e1e;
   margin:0 auto;
   overflow: hidden;
-  padding: 35px 0px 135px;
+  padding: 35px 30px 135px;
 }
 
 /*-------------------------------------------------------
@@ -2702,7 +2702,7 @@ button.close {
 -------------------------------------------------------*/
 
 footer {
-  width:1370px;
+  width:100%;
   background: #191919;
   margin:0 auto;
   overflow: hidden;
