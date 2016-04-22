@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 
 Route::controller('site', 'WebsiteController');
+Route::controller('admin', 'Admin');
+

@@ -209,7 +209,7 @@
 							<div class="col-sm-12">
 								<div class="latest-content">
 									<div class="latest-content-image">
-										<img src="images/photos/photo11.jpg" alt="" />
+										<img src="{{asset('/images/photos/photo11.jpg')}}" alt="" />
 									</div>
 									<div class="latest-content-info">
 
@@ -234,7 +234,7 @@
 							<div class="col-sm-12">
 								<div class="latest-content">
 									<div class="latest-content-image">
-										<img src="images/photos/photo13.jpg" alt="" />
+										<img src="{{asset('/images/photos/photo13.jpg')}}" alt="" />
 									</div>
 									<div class="latest-content-info">
 
@@ -259,7 +259,7 @@
 							<div class="col-sm-12">
 								<div class="latest-content">
 									<div class="latest-content-image">
-										<img src="images/photos/photo15.jpg" alt="" />
+										<img src="{{asset('/images/photos/photo15.jpg')}}" alt="" />
 									</div>
 									<div class="latest-content-info">
 
@@ -283,7 +283,7 @@
 							<div class="col-sm-12">
 								<div class="latest-content">
 									<div class="latest-content-image">
-										<img src="images/photos/photo17.jpg" alt="" />
+										<img src="{{asset('/images/photos/photo17.jpg')}}" alt="" />
 									</div>
 									<div class="latest-content-info">
 										<div class="meta">
