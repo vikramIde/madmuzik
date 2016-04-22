@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class AdminController extends Controller
+class Admin extends Controller
 {
 	    public function getIndex(){
 
