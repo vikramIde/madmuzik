@@ -11,12 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-	return redirect('site/home');
-    //return view('website.welcome');
-});
-
-
+Route::get('/', 'WebsiteController@getHome');
 Route::controller('site', 'WebsiteController');
 Route::controller('admin', 'AdminController');
 
