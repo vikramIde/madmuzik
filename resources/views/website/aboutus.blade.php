@@ -1,16 +1,13 @@
 @extends('website.app')
 @section('content')
-
-<section id="breadcrumbs">
+	<section id="breadcrumbs">
 		<div class="container"><a href="index.html">Home</a> <i class="fa fa-angle-double-right"></i> Who We Are ?</div>
 	</section>
-
 	<section id="tagline">
 		<div class="container">
 			<h1>Madmuzik records: Who are we ?</h1>
 		</div>
 	</section>
-
 	<main>
 		<section id="content">
 			<div class="container">
@@ -33,5 +30,4 @@
 			</div>
 		</section>
 	</main> 
-
 @endsection
