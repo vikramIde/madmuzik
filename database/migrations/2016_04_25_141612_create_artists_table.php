@@ -18,6 +18,7 @@ class CreateArtistsTable extends Migration
             $table->increments('id');
             $table->string('artist_name');
             $table->string('artist_image_loc');
+            $table->string('artist_title');
             $table->integer('followers');
             $table->timestamps();
         });
