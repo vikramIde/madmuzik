@@ -46,7 +46,7 @@ class WebsiteController extends BaseController
 
         $artistList = Artist::all();
         //dd($artistList);
-    	return view('website.listartiste');
+    	return view('website.listartist')->with(array('artistList'=>$artistList));
     }
 
     public function getViewartiste($id){
