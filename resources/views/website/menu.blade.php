@@ -40,8 +40,8 @@
 						<li class="dropdown">
 							<a href="" class="dropdown-toggle disabled" data-toggle="dropdown">Team <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="{{ url('/site/listartiste') }}" >List Artiste</a></li>
-								<li><a href="{{ url('/site/viewartiste') }}" >View Artiste</a></li>
+								<li><a href="{{ url('/site/listartist') }}" >List Artiste</a></li>
+								<li><a href="{{ url('/site/viewartist') }}" >View Artiste</a></li>
 							</ul>
 						</li>
 						<li class=""><a  href="{{ url('/site/shop') }}" >Shop</a></li>

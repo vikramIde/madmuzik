@@ -61,7 +61,7 @@
 									<div class="meta">
 										<div class="icon">
 											<i class="fa fa-user"></i>
-										</div>
+										</div> <a href="{{ url('/site/viewartist/'<?php $artist->id ?>) }}"
 										<h4>{{$artist->artist_name}}</h4>
 										<p>{{$artist->artist_title}}</p>
 									</div>
