@@ -47,7 +47,7 @@ class WebsiteController extends BaseController
     	
     }
 
-    public function getListartiste(){
+    public function getListartist(){
  
         $artistList = Artist::select('id','artist_name', 'artist_title','artist_image')->get();
         //dd($artistList);
@@ -55,9 +55,10 @@ class WebsiteController extends BaseController
         //skljhkhkl
     }
 
-    public function getViewartiste($id){
+    public function getViewartist($id){
+
     	$artistDetail = Artist::where('id', $id)->get();
-        dd($artistDetail);
+        
     	return view('website.viewartist')->with(array('artistDetail'=>$artistDetail));
     }
 

@@ -62,7 +62,7 @@
 										<div class="icon">
 											<i class="fa fa-user"></i>
 										</div><!-- you can change this to anywhere -->
-										<h4><a href="{{ url('/site/viewartist/'<?php $artist->id ?>) }}" >{{$artist->artist_name}}</a></h4>
+										<h4><a href="{{ URL::to('/site/viewartist/'.$artist->id ) }}" >{{$artist->artist_name}}</a></h4>
 										<p>{{$artist->artist_title}}</p>
 									</div>
 								</div>
