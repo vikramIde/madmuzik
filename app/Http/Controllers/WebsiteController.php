@@ -13,6 +13,11 @@ class WebsiteController extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
+    public function getIndex(){
+
+        return redirect('/');
+
+    }
 
     public function getHome(){
 
@@ -43,15 +48,16 @@ class WebsiteController extends BaseController
     }
 
     public function getListartiste(){
-
-        $artistList = Artist::all();
+ 
+        $artistList = Artist::select('artist_name', 'artist_title','artist_image_loc')->get();
         //dd($artistList);
     	return view('website.listartist')->with(array('artistList'=>$artistList));
     }
 
     public function getViewartiste($id){
-    	
-    	return view('website.viewartiste');
+    	$artistDetail = Artist::where('id', $id)->get();
+        dd($artistDetail);
+    	return view('website.viewartist')->with(array('artistDetail'=>$artistDetail));
     }
 
     public function getDonate(){
