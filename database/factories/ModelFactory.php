@@ -23,6 +23,12 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Artist::class, function (Faker\Generator $faker) {
     return [
         'artist_name' => $faker->name($gender = null|'male'|'female'),
-        'followers'    => $faker->randomDigitNotNull()
+        'followers'    => $faker->randomDigitNotNull(),
+        'artist_image'=>$faker->imageUrl($width = 256, $height = 256), 
+        'artist_title' =>$faker->word(4),
+        'artist_address' =>$faker->address(),
+        'artist_phone' =>$faker->phoneNumber(),
+        'artist_fb' =>$faker->sentence(4),
+        'artist_description' => $faker->sentence()
     ];
 });

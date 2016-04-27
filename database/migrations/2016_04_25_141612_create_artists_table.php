@@ -13,12 +13,15 @@ class CreateArtistsTable extends Migration
     public function up()
     {
         //
-        //
         Schema::create('Artists', function (Blueprint $table) {
             $table->increments('id');
             $table->string('artist_name');
-            $table->string('artist_image_loc');
+            $table->string('artist_image');
             $table->string('artist_title');
+            $table->string('artist_fb');
+            $table->string('artist_phone');
+            $table->string('artist_address');
+            $table->string('artist_description');
             $table->integer('followers');
             $table->timestamps();
         });
