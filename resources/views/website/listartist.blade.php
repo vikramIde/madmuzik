@@ -39,14 +39,14 @@
 						<div class="latest-content">
 							<a href="artist.html">
 								<div class="latest-content-image">
-								 <!--@if($artist->artist_image_loc !='')
-									<img src="images/music-icon1.png" alt="" />
+								@if($artist->artist_image_loc !='')
+									<img src="{{$artist->artist_image_loc}}" alt="" />
 								@else
-								  <img src="../images/music-icon.png" alt="" />
-								@endif-->
-								<div class="latest-content-image">
-									<img src="{{$artist->artist_image_loc}}" onerror="this.src='../images/music1.png'" alt="" />
-								</div>
+								  <img src="{{asset('/images/music1.png')}}" alt="" />
+								@endif
+								<!--<div class="latest-content-image">
+									<img src="{{$artist->artist_image_loc}}" onerror="imgError(this);" alt="" />
+								</div>-->
 								</div>
 								<div class="latest-content-info">
 
@@ -73,5 +73,4 @@
 			</ul>
 		</section>
 	</main> <!-- end main content area -->
-
 	@endsection
