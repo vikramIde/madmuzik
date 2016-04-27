@@ -39,7 +39,14 @@
 						<div class="latest-content">
 							<a href="artist.html">
 								<div class="latest-content-image">
-									<img src="images/photos/photo16.jpg" alt="" />
+								 <!--@if($artist->artist_image_loc !='')
+									<img src="images/music-icon1.png" alt="" />
+								@else
+								  <img src="../images/music-icon.png" alt="" />
+								@endif-->
+								<div class="latest-content-image">
+									<img src="{{$artist->artist_image_loc}}" onerror="this.src='../images/music1.png'" alt="" />
+								</div>
 								</div>
 								<div class="latest-content-info">
 

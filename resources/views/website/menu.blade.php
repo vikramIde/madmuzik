@@ -30,22 +30,21 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li class="current"><a href="{{ url('/site/home') }}">Home</a></li>
 						<li class=""><a href="{{ url('/site/aboutus') }}">About Us</a></li>
-						<li class=""><a href="{{ url('/site/partycalender') }}">Party Calender</a></li>
 						<li class="dropdown">
-							<a href="" class="dropdown-toggle disabled" data-toggle="dropdown">Albums <b class="caret"></b></a>
+							<a href="" class="dropdown-toggle disabled" data-toggle="dropdown">Music <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li><a href="{{ url('/site/listalbums') }}" >List Albums</a></li>
 								<li><a href="{{ url('/site/viewalbum') }}" >View Album</a></li>
 							</ul>
 						</li>
 						<li class="dropdown">
-							<a href="" class="dropdown-toggle disabled" data-toggle="dropdown">Artiste <b class="caret"></b></a>
+							<a href="" class="dropdown-toggle disabled" data-toggle="dropdown">Team <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li><a href="{{ url('/site/listartiste') }}" >List Artiste</a></li>
 								<li><a href="{{ url('/site/viewartiste') }}" >View Artiste</a></li>
 							</ul>
 						</li>
-						<li class=""><a  href="{{ url('/site/donate') }}" >Donate</a></li>
+						<li class=""><a  href="{{ url('/site/shop') }}" >Shop</a></li>
 						<!--<li class="dropdown">
 							<a href="" class="dropdown-toggle disabled" data-toggle="dropdown">Blog <b class="caret"></b></a>
 							<ul class="dropdown-menu">
@@ -72,7 +71,7 @@
 								<li><a href="../Tables/">Tables</a></li>
 							</ul>
 						</li>-->
-						<li><a href="{{ url('/site/contact') }}" >Contact Us</a></li>
+						<li><a href="{{ url('/site/connect') }}" >Connect</a></li>
 					</ul>
 				</div>
 			</div>
