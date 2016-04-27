@@ -1,6 +1,14 @@
 @extends('website.app')
 @section('content')
 
+<!--    <script>
+    $('.pagination').bootpag({
+    total: 5
+	}).on("page", function(event, num){
+		$(".artist").html("Page " + num);
+		$(this).bootpag({total: 10, maxVisible: 10});
+	 });
+    </script> -->
 
 	<section id="breadcrumbs">
 		<div class="container"><a href="index.html">Home</a> <i class="fa fa-angle-double-right"></i> Artists</div>
@@ -39,8 +47,8 @@
 						<div class="latest-content">
 							<a href="artist.html">
 								<div class="latest-content-image">
-								@if($artist->artist_image_loc !='')
-									<img src="{{$artist->artist_image_loc}}" alt="" />
+								@if($artist->artist_image !='')
+									<img src="{{$artist->artist_image}}" alt="" />
 								@else
 								  <img src="{{asset('/images/music1.png')}}" alt="" />
 								@endif
@@ -72,5 +80,5 @@
 				<li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
 			</ul>
 		</section>
-	</main> <!-- end main content area -->
+	</main> <!-- end main content area  -->
 	@endsection
