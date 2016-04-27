@@ -61,8 +61,8 @@
 									<div class="meta">
 										<div class="icon">
 											<i class="fa fa-user"></i>
-										</div> <a href="{{ url('/site/viewartist/'<?php $artist->id ?>) }}" >Cickme </a>
-										<h4>{{$artist->artist_name}}</h4>
+										</div><!-- you can change this to anywhere -->
+										<h4><a href="{{ url('/site/viewartist/'<?php $artist->id ?>) }}" >{{$artist->artist_name}}</a></h4>
 										<p>{{$artist->artist_title}}</p>
 									</div>
 								</div>
