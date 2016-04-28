@@ -54,7 +54,7 @@ class WebsiteController extends BaseController
 
             $albumDetails = Album::where('id', $id)->get();
 
-            return view('website.viewalbum')->with( array('albumDetails' => $albumDetails );
+            return view('website.viewalbum')->with( array('albumDetails' => $albumDetails ));
         
     }
 
