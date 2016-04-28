@@ -38,7 +38,7 @@ $factory->define(App\Album::class, function (Faker\Generator $faker) {
     'album_name' => $faker->company(),
     'album_art' => $faker->imageUrl($width = 263, $height = 292),
     'album_description' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
-    'album_mainart' => $faker->imageUrl($width = 1140, $height = 1140),  
+    'album_mainart' => $faker->imageUrl($width = 500, $height = 500),  
     'album_soundcloud' => $faker->company(),
     'album_youtube' => $faker->company(),
     'album_facebook' => $faker->company(),
