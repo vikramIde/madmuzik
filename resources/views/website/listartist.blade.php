@@ -30,18 +30,7 @@
 						<p>Nullam eu lectus et tellus malesuada bibendum sed a nisl. Praesent iaculis sem nisi, sed molestie est ullamcorper vitae. Praesent ac tincidunt eros. Duis eget urna convallis, faucibus magna vel, auctor justo. Proin et scelerisque dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="#">See below artist list.</a></p>
 					</div>
 				</div>
-
-				<!--<ul class="isotope-filters artist-filter">
-					<li class="current"><a href="#" data-filter="*">All Artists</a></li>
-					<li><i class="fa fa-ellipsis-v"></i><a href="#" data-filter=".drummer">Drummers</a></li>
-					<li><i class="fa fa-ellipsis-v"></i><a href="#" data-filter=".guitar">Guiter Players</a></li>
-					<li><i class="fa fa-ellipsis-v"></i><a href="#" data-filter=".singer">Singers</a></li>
-					<li><i class="fa fa-ellipsis-v"></i><a href="#" data-filter=".solo">Solo Artists</a></li>
-				</ul>-->
-
 				<div class="row artists">
-					<!-- artists -->
-					
 					@foreach($artistList as $artist)
 					<div class="col-sm-6 col-md-3 artist guitar">
 						<div class="latest-content">
@@ -52,9 +41,6 @@
 								@else
 								  <img src="{{asset('/images/music1.png')}}" alt="" />
 								@endif
-								<!--<div class="latest-content-image">
-									<img src="{{$artist->artist_image_loc}}" onerror="imgError(this);" alt="" />
-								</div>-->
 								</div>
 								<div class="latest-content-info">
 
@@ -70,7 +56,6 @@
 						</div>
 					</div>
 					@endforeach
-					
 				</div>
 			</div>
 

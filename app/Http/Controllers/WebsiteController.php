@@ -37,7 +37,10 @@ class WebsiteController extends BaseController
 
     public function getListalbums(){
 
-    	return view('website.listalbums');
+    	 $albumList = Album::select('id','album_name', 'album_title','album_image_loc ')->get();
+        //dd($artistList);
+        return view('website.listalbum')->with(array('albumList'=>$albumList));
+        //skljhkhkl
     	
     }
 
