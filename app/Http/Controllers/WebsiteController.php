@@ -44,17 +44,17 @@ class WebsiteController extends BaseController
     public function getListalbums(){
 
         $albumList = Album::with(['artist'])->select('id','album_name', 'album_art')->get();
-
-     //dd($albumList);
+        
+        //dd($albumList);
         return view('website.listalbums')->with(array('albumList'=>$albumList));;
         
     }
 
-    public function getViewalbum(){
+    public function getViewalbum($id){
 
-         $artistList = Album::select('id','album_name', 'album_mainart','artist_image')->get();
+            $albumDetails = Album::where('id', $id)->get();
 
-        return view('website.viewalbum');
+            return view('website.viewalbum')->with( array('albumDetails' => ,$albumDetails );
         
     }
 
