@@ -46,7 +46,7 @@ class WebsiteController extends BaseController
         $albumList = Album::with(['artist'])->select('id','album_name', 'album_art')->get();
         
         //dd($albumList);
-        return view('website.listalbums')->with(array('albumList'=>$albumList));;
+        return view('website.listalbums')->with(array('albumList'=> $albumList));
         
     }
 
@@ -73,10 +73,12 @@ class WebsiteController extends BaseController
         return view('website.viewartist')->with(array('artistDetail'=>$artistDetail));
     }
 
+
     public function getDonate(){
         
         return view('website.donate');
     }
+
 
     public function getContact(){
         
