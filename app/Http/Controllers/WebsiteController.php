@@ -8,6 +8,8 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use App\Artist;
+use App\Song;
+use App\Album;
 
 class WebsiteController extends BaseController
 {
@@ -21,57 +23,63 @@ class WebsiteController extends BaseController
 
     public function getHome(){
 
-    	return view('website.welcome');
+        $featuredArtist='';
+        $featuredAlbum='';
+        $featuredSong='';
+
+        return view('website.welcome')->with(array('featuredArtist'=>$featuredArtist,'featuredSong'=>$featuredSong,'featuredAlbum'=>$featuredAlbum));
 
     }
 
     public function getAboutus(){
-    	
-    	return view('website.aboutus');
+        
+        return view('website.aboutus');
     }
 
     public function getPartycalender(){
-    	
-    	return view('website.partycalender');
+        
+        return view('website.partycalender');
     }
 
     public function getListalbums(){
 
-    	 $albumList = Album::select('id','album_name', 'album_title','album_image_loc ')->get();
-        //dd($artistList);
-        return view('website.listalbum')->with(array('albumList'=>$albumList));
-        //skljhkhkl
-    	
+        $albumList = Album::with(['artist'])->select('id','album_name', 'album_art','artist_id')->get();
+
+        dd($albumList);
+        return view('website.listalbums')->with(array('artistList'=>$albumList));;
+        
     }
 
     public function getViewalbum(){
 
-    	return view('website.viewalbum');
-    	
+         $artistList = Album::select('id','album_name', 'album_mainart','artist_image')->get();
+
+        return view('website.viewalbum');
+        
     }
 
     public function getListartist(){
  
         $artistList = Artist::select('id','artist_name', 'artist_title','artist_image')->get();
         //dd($artistList);
-    	return view('website.listartist')->with(array('artistList'=>$artistList));
+        return view('website.listartist')->with(array('artistList'=>$artistList));
         //skljhkhkl
     }
 
     public function getViewartist($id){
 
-    	$artistDetail = Artist::where('id', $id)->get();
+        $artistDetail = Artist::where('id', $id)->get();
         
-    	return view('website.viewartist')->with(array('artistDetail'=>$artistDetail));
+        return view('website.viewartist')->with(array('artistDetail'=>$artistDetail));
     }
 
-    public function getShop(){
-    	
-    	return view('website.shop');
+    public function getDonate(){
+        
+        return view('website.donate');
     }
 
-    public function getConnect(){
-    	
-    	return view('website.connect');
+    public function getContact(){
+        
+        return view('website.contact');
     }
 }

@@ -14,7 +14,13 @@ class DatabaseSeeder extends Seeder
     {
     	 Model::unguard();
     	 //DB::table('artists');
-        factory(App\Artist::class, 50)->create();
+       // factory(App\Artist::class, 50)->create();
+
+        factory(App\Artist::class, 10)
+           ->create()
+           ->each(function($u) {
+                $u->albums()->save(factory(App\Album::class)->make());
+            });
 
           Model::reguard();
     }

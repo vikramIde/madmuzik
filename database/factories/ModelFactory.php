@@ -29,6 +29,18 @@ $factory->define(App\Artist::class, function (Faker\Generator $faker) {
         'artist_address' =>$faker->address(),
         'artist_phone' =>$faker->phoneNumber(),
         'artist_fb' =>$faker->sentence(4),
-        'artist_description' => $faker->sentence()
+        'artist_description' => $faker->paragraph()
+    ];
+});
+
+$factory->define(App\Album::class, function (Faker\Generator $faker) {
+    return [
+    'album_name' => $faker->company(),
+    'album_art' => $faker->imageUrl($width = 263, $height = 292),
+    'album_description' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+    'album_mainart' => $faker->imageUrl($width = 1140, $height = 1140),  
+    'album_soundcloud' => $faker->company(),
+    'album_youtube' => $faker->company(),
+    'artist_id' => factory(App\Artist::class)->create()->id,
     ];
 });
