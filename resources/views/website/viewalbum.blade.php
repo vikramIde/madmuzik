@@ -60,7 +60,7 @@
 				<div class="album-banner">
 					@foreach($albumDetails as $album)
 					<div class="banner-image">
-						<img src="{{$album->album_art}}" alt="" class="img-responsive"/>
+						<img src="{{$album->album_mainart}}" style="height:500px" alt="" class="img-responsive"/>
 					</div>
 					<div class="row">
 						<div class="col-sm-9 album-title">
