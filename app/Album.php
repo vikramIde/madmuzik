@@ -17,6 +17,8 @@ class Album extends Model
   public function artist(){
 
     return $this->belongsTo('App\Artist');
+
+    //this is to show
   }
 
 }
