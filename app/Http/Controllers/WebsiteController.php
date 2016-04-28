@@ -74,14 +74,14 @@ class WebsiteController extends BaseController
     }
 
 
-    public function getDonate(){
+    public function getShop(){
         
-        return view('website.donate');
+        return view('website.shop');
     }
 
 
-    public function getContact(){
+    public function getConnect(){
         
-        return view('website.contact');
+        return view('website.connect');
     }
 }
