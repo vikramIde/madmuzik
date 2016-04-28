@@ -45,7 +45,7 @@
 					@foreach($artistList as $artist)
 					<div class="col-sm-6 col-md-3 artist guitar">
 						<div class="latest-content">
-							<a href="artist.html">
+							<a href="{{ URL::to('/site/viewartist/'.$artist->id ) }}">
 								<div class="latest-content-image">
 								@if($artist->artist_image !='')
 									<img src="{{$artist->artist_image}}" alt="" />
