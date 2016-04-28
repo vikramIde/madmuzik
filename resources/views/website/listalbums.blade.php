@@ -20,168 +20,31 @@
 						<p>Nullam eu lectus et tellus malesuada bibendum sed a nisl. Praesent iaculis sem nisi, sed molestie est ullamcorper vitae. Praesent ac tincidunt eros. Duis eget urna convallis, faucibus magna vel, auctor justo. Proin et scelerisque dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="#">See below album list.</a></p>
 					</div>
 				</div>
-
-				<!--<ul class="isotope-filters album-filter">
-					<li class="current"><a href="#" data-filter="*">All Albums</a></li>
-					<li><i class="fa fa-ellipsis-v"></i><a href="#" data-filter=".electronic">Electronic</a></li>
-					<li><i class="fa fa-ellipsis-v"></i><a href="#" data-filter=".pop">Pop</a></li>
-					<li><i class="fa fa-ellipsis-v"></i><a href="#" data-filter=".rock">Rock</a></li>
-				</ul>-->
-
 				<div class="row albums">
-					<!-- albums -->
+					@foreach($albumList as $album)
 					<div class="col-sm-6 col-md-3 album pop">
 						<div class="latest-content">
-							<a href="album.html">
+							<a href="{{ URL::to('/site/viewalbum/'.$album->id ) }}">
 								<div class="latest-content-image">
-									<img src="images/photos/photo26.jpg" alt="" />
+								@if($album->album_art !='')
+									<img src="{{$album->album_art}}" alt="" />
+								@else
+								  <img src="{{asset('/images/music1.png')}}" alt="" />
+								@endif
 								</div>
 								<div class="latest-content-info">
-
 									<div class="meta">
 										<div class="icon">
 											<i class="fa fa-headphones"></i>
 										</div>
-										<h4>Large Worldwide</h4>
-										<p>Pethouse Records, Real Recordings</p>
+										<h4><a href="{{ URL::to('/site/viewalbum/'.$album->id ) }}" >{{$album->album_name}}</a></h4>
+										
 									</div>
 								</div>
 							</a>
 						</div>
 					</div>
-					<div class="col-sm-6 col-md-3 album electronic">
-						<div class="latest-content">
-							<a href="album.html">
-								<div class="latest-content-image">
-									<img src="images/photos/photo25.jpg" alt="" />
-								</div>
-								<div class="latest-content-info">
-
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-headphones"></i>
-										</div>
-										<h4>Desire Evita</h4>
-										<p>PhetHouse Records</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3 album rock">
-						<div class="latest-content">
-							<a href="album.html">
-								<div class="latest-content-image">
-									<img src="images/photos/photo24.jpg" alt="" />
-								</div>
-								<div class="latest-content-info">
-
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-headphones"></i>
-										</div>
-										<h4>Fly Away Monster</h4>
-										<p>Spinder Records</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3 album electronic">
-						<div class="latest-content">
-							<a href="album.html">
-								<div class="latest-content-image">
-									<img src="images/photos/photo26.jpg" alt="" />
-								</div>
-								<div class="latest-content-info">
-
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-headphones"></i>
-										</div>
-										<h4>Large Worldwide</h4>
-										<p>Pethouse Records, Real Recordings</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3 album electronic">
-						<div class="latest-content">
-							<a href="album.html">
-								<div class="latest-content-image">
-									<img src="images/photos/photo25.jpg" alt="" />
-								</div>
-								<div class="latest-content-info">
-
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-headphones"></i>
-										</div>
-										<h4>Desire Evita</h4>
-										<p>PhetHouse Records</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3 album pop">
-						<div class="latest-content">
-							<a href="album.html">
-								<div class="latest-content-image">
-									<img src="images/photos/photo24.jpg" alt="" />
-								</div>
-								<div class="latest-content-info">
-
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-headphones"></i>
-										</div>
-										<h4>Fly Away Monster</h4>
-										<p>Spinder Records</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3 album electronic">
-						<div class="latest-content">
-							<a href="album.html">
-								<div class="latest-content-image">
-									<img src="images/photos/photo17.jpg" alt="" />
-								</div>
-								<div class="latest-content-info">
-
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-headphones"></i>
-										</div>
-										<h4>Large Worldwide</h4>
-										<p>Real Recordings, Pethouse</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3 album rock">
-						<div class="latest-content">
-							<a href="album.html">
-								<div class="latest-content-image">
-									<img src="images/photos/photo25.jpg" alt="" />
-								</div>
-								<div class="latest-content-info">
-
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-headphones"></i>
-										</div>
-										<h4>Desire Evita</h4>
-										<p>PhetHouse Records</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
+					@endforeach					
 				</div>
 			</div>
 
