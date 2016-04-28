@@ -21,13 +21,13 @@
 					</div>
 				</div>
 				<div class="row albums">
-					@foreach($albumList as $albums)
+					@foreach($albumList as $album)
 					<div class="col-sm-6 col-md-3 album pop">
 						<div class="latest-content">
-							<a href="{{ URL::to('/site/viewalbum/'.$albums->id ) }}">
+							<a href="{{ URL::to('/site/viewalbum/'.$album->id ) }}">
 								<div class="latest-content-image">
-								@if($albums->album_image_loc !='')
-									<img src="{{$albums->album_image_loc}}" alt="" />
+								@if($album->album_art !='')
+									<img src="{{$album->album_art}}" alt="" />
 								@else
 								  <img src="{{asset('/images/music1.png')}}" alt="" />
 								@endif
@@ -37,8 +37,8 @@
 										<div class="icon">
 											<i class="fa fa-headphones"></i>
 										</div>
-										<h4><a href="{{ URL::to('/site/viewalbum/'.$albums->id ) }}" >{{$albums->album_name}}</a></h4>
-										<p>{{$albums->album_title}}</p>
+										<h4><a href="{{ URL::to('/site/viewalbum/'.$album->id ) }}" >{{$album->album_name}}</a></h4>
+										
 									</div>
 								</div>
 							</a>
