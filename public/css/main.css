@@ -2868,4 +2868,35 @@ ul.social i {
 }
 header {
     padding-top: 40px;
+}.img-responsive {
+    width: 100%;
+}
+.orange{color: #F69028;}
+.white{color: #fff;}
+.space{margin-top:10px;}
+.rightbar li{list-style:none;}
+.rightlinks {
+    background: #2C2C2C;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}.rightbar ul li {
+    padding:10px 0 1px 0;
+    border-bottom-style: dotted;
+    border-bottom: 1px solid rgba(249, 180, 110, 0.49);
+    border-bottom-style: dashed;
+}li.social {
+    display: -webkit-box;
+}li.social ul li {
+    display: -webkit-inline-box;
+    margin: 0 5px;
+    border: none;
+    padding: 0 0;
+}.icon .fa {
+    line-height: 60px !important;
+}.fa-lg {
+    font-size: 1.33333333em;
+    line-height: 1.75em !important;
+    vertical-align: -15%;
+}i.fa.orange {
+    margin-right: 5px;
 }

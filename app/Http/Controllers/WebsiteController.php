@@ -62,13 +62,13 @@ class WebsiteController extends BaseController
     	return view('website.viewartist')->with(array('artistDetail'=>$artistDetail));
     }
 
-    public function getDonate(){
+    public function getShop(){
     	
-    	return view('website.donate');
+    	return view('website.shop');
     }
 
-    public function getContact(){
+    public function getConnect(){
     	
-    	return view('website.contact');
+    	return view('website.connect');
     }
 }

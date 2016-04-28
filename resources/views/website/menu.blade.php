@@ -28,23 +28,11 @@
 				</div>
 				<div class="collapse navbar-collapse" id="main-nav">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="current"><a href="{{ url('/site/home') }}">Home</a></li>
-						<li class=""><a href="{{ url('/site/aboutus') }}">About Us</a></li>
-						<li class="dropdown">
-							<a href="" class="dropdown-toggle disabled" data-toggle="dropdown">Music <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="{{ url('/site/listalbums') }}" >List Albums</a></li>
-								<li><a href="{{ url('/site/viewalbum') }}" >View Album</a></li>
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a href="" class="dropdown-toggle disabled" data-toggle="dropdown">Team <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="{{ url('/site/listartist') }}" >List Artiste</a></li>
-								<li><a href="{{ url('/site/viewartist') }}" >View Artiste</a></li>
-							</ul>
-						</li>
-						<li class=""><a  href="{{ url('/site/shop') }}" >Shop</a></li>
+						<li><a href="{{ url('/site/home') }}"><i class="fa fa-home orange"></i>  Home</a></li>
+						<li><a href="{{ url('/site/aboutus') }}"><i class="fa fa-user orange"></i> About Us</a></li>
+						<li><a href="{{ url('/site/listalbums') }}" ><i class="fa fa-music orange"></i> Music</a></li>
+						<li><a href="{{ url('/site/listartist') }}"><i class="fa fa-headphones orange"></i> Team</a></li>
+						<li><a  href="{{ url('/site/shop') }}" ><i class="fa fa-shopping-bag orange"></i> Shop</a></li>
 						<!--<li class="dropdown">
 							<a href="" class="dropdown-toggle disabled" data-toggle="dropdown">Blog <b class="caret"></b></a>
 							<ul class="dropdown-menu">
@@ -52,26 +40,8 @@
 								<li><a href="../Blogsingle/">Blog Single</a></li>
 								<li><a href="../Bloggrid/">Blog Grid</a></li>
 							</ul>
-						</li>
-						<li class="dropdown">
-							<a href="" class="dropdown-toggle disabled" data-toggle="dropdown">Events <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="../Events/">Events Overview</a></li>
-								<li><a href="../Eventdetails/">Event Details 1</a></li>
-								<li><a href="../Eventcountdown/">Event Countdown</a></li>
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a href="" class="dropdown-toggle disabled" data-toggle="dropdown">Pages <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="../404/">404 Page</a></li>
-								<li><a href="../Gallery/">Galleries</a></li>
-								<li><a href="../Video/">Videos</a></li>
-								<li><a href="../Typography/">Typography</a></li>
-								<li><a href="../Tables/">Tables</a></li>
-							</ul>
 						</li>-->
-						<li><a href="{{ url('/site/connect') }}" >Connect</a></li>
+						<li><a href="{{ url('/site/connect') }}" ><i class="fa fa-phone orange"></i> Connect</a></li>
 					</ul>
 				</div>
 			</div>
