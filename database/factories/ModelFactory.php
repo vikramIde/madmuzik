@@ -41,6 +41,12 @@ $factory->define(App\Album::class, function (Faker\Generator $faker) {
     'album_mainart' => $faker->imageUrl($width = 1140, $height = 1140),  
     'album_soundcloud' => $faker->company(),
     'album_youtube' => $faker->company(),
+    'album_facebook' => $faker->company(),
+    'album_youtubeVideo' => $faker->company(),
+    'album_release_date' => $faker->date($format = 'd-m-Y', $max = 'now') ,
+    'album_compiled_by' => $faker->name(),
+    'album_mastering' => $faker->company(),
+    'album_artwork' => $faker->name(),
     'artist_id' => factory(App\Artist::class)->create()->id,
     ];
 });
