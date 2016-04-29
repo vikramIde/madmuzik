@@ -55,7 +55,7 @@ class WebsiteController extends Controller
 
             $albumDetails = Album::where('id', $id)->get();
 
-            $randomAlbumlist = Album::orderByRaw("RAND()")->take(4)->get(); 
+            $randomAlbumlist = Album::select('id','album_name', 'album_art')->orderByRaw("RAND()")->take(4)->get(); 
 
            // dd($randomAlbumlist);
 
@@ -68,16 +68,15 @@ class WebsiteController extends Controller
     public function getListartist(){
  
         $artistList = Artist::select('id','artist_name', 'artist_title','artist_image')->get();
-        //dd($artistList);
         return view('website.listartist')->with(array('artistList'=>$artistList));
-        //skljhkhkl
+        
     }
 
     public function getViewartist($id){
 
         $artistDetail = Artist::where('id', $id)->get();
 
-        $randomArtistlist = Artist::orderByRaw("RAND()")->take(4)->get(); 
+        $randomArtistlist = Artist::select('id','artist_name', 'artist_title','artist_image')->orderByRaw("RAND()")->take(4)->get(); 
         
         return view('website.viewartist')->with(array('artistDetail'=>$artistDetail,'randomArtistlist'=>$randomArtistlist));
 
