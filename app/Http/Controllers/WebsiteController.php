@@ -18,6 +18,7 @@ class WebsiteController extends Controller
         return redirect('/');
 
     }
+
 //here we added 
 
     public function getHome(){
@@ -54,7 +55,13 @@ class WebsiteController extends Controller
 
             $albumDetails = Album::where('id', $id)->get();
 
-            return view('website.viewalbum')->with( array('albumDetails' => $albumDetails ));
+            $randomAlbumlist = Album::orderByRaw("RAND()")->take(4)->get(); 
+
+           // dd($randomAlbumlist);
+
+            return view('website.viewalbum')->with( array('albumDetails' => $albumDetails,'randomAlbumlist'=>$randomAlbumlist ));
+
+           
         
     }
 
@@ -69,8 +76,11 @@ class WebsiteController extends Controller
     public function getViewartist($id){
 
         $artistDetail = Artist::where('id', $id)->get();
+
+        $randomArtistlist = Artist::orderByRaw("RAND()")->take(4)->get(); 
         
-        return view('website.viewartist')->with(array('artistDetail'=>$artistDetail));
+        return view('website.viewartist')->with(array('artistDetail'=>$artistDetail,'randomArtistlist'=>$randomArtistlist));
+
     }
 
 
