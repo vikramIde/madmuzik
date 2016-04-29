@@ -23,6 +23,7 @@ class CreateArtistsTable extends Migration
             $table->string('artist_address');
             $table->string('artist_description');
             $table->integer('followers');
+            $table->integer('artist_featured');
             $table->timestamps();
         });
     }

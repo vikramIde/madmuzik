@@ -18,14 +18,17 @@ class WebsiteController extends Controller
         return redirect('/');
 
     }
+//here we added 
 
     public function getHome(){
 
-        $featuredArtist='';
-        $featuredAlbum='';
-        $featuredSong='';
+        $featuredArtist=Artist::select('id','artist_name', 'artist_title','artist_image','artist_fb')->where('artist_featured','=',1)->get();
 
-        return view('website.welcome')->with(array('featuredArtist'=>$featuredArtist,'featuredSong'=>$featuredSong,'featuredAlbum'=>$featuredAlbum));
+        $featuredAlbum=Album::select('id','album_name', 'album_art','album_facebook')->where('album_featured','=',1)->get();
+
+        $featuredSong='';
+        //dd($featuredAlbum);
+        return view('website.welcome')->with(array('featuredArtist'=>$featuredArtist,'featuredAlbum'=>$featuredAlbum));
 
     }
 
@@ -33,7 +36,6 @@ class WebsiteController extends Controller
         
         return view('website.aboutus');
     }
-
     public function getPartycalender(){
         
         return view('website.partycalender');
