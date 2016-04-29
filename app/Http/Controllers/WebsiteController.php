@@ -19,7 +19,7 @@ class WebsiteController extends Controller
 
     }
 
-//here we added ....
+//here we added .......
 
     public function getHome(){
 
