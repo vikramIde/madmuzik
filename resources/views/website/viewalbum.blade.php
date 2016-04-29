@@ -17,7 +17,7 @@
 	<!-- main content area -->
 	<main>
 		<section id="content">
-			<!-- <div class="container">
+			<!-- <div class="container banner">
 				<div class="row artist-info">
 					<div class="col-sm-4 col-md-3">
 						@foreach($albumDetails as $album)
