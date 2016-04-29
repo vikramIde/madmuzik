@@ -23,9 +23,9 @@ class WebsiteController extends Controller
 
     public function getHome(){
 
-        $featuredArtist=Artist::select('id','artist_name', 'artist_title','artist_image','artist_fb')->where('artist_featured','=',1)->get();
+        $featuredArtist=Artist::select('id','artist_name', 'artist_title','artist_image','artist_fb','artist_description')->where('artist_featured','=',1)->get();
 
-        $featuredAlbum=Album::select('id','album_name', 'album_art','album_facebook')->where('album_featured','=',1)->get();
+        $featuredAlbum=Album::select('id','album_name', 'album_art','album_facebook','album_description')->where('album_featured','=',1)->get();
 
         $featuredSong='';
         //dd($featuredAlbum);

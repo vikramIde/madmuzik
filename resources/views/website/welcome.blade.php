@@ -36,8 +36,8 @@
 			<div class="container">
 				<div class="row">
 					@foreach($featuredArtist as $featuredartist)
-					<div class="col-md-3 latest-videos">
-						<h2>Last <span>Artist</span> </h2>
+					<div class="col-md-4 latest-videos">
+						<h2>Featured <span>Artist</span> </h2>
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="latest-content">
@@ -58,7 +58,7 @@
 											</div>
 											<h4><a href="{{ URL::to('/site/featuredArtist/'.$featuredartist->id ) }}" >{{$featuredartist->artist_name}}</a></h4>
 											</div>
-											<p>In the language of the wise and ancient Maya, ‘Elau’ means ‘Color’ and ‘Akkual’ means Night; as a dedication to the new age of consciousness,…</p>
+											<p>{{$featuredartist->artist_description}}</p>
 										<a href="#" class="view-all"><span>Read More </span><i class="fa fa-angle-double-right view-all-icon"></i> </a>
 										</div>
 									</div>
@@ -68,7 +68,7 @@
 					</div>
 					@endforeach
 					@foreach($featuredAlbum as $featuredalbum)
-					 <div class="col-md-3 latest-albums">
+					 <div class="col-md-4 latest-albums">
 						<h2>Featured <span>Album</span> </h2>
 						<div class="row">
 							<div class="col-sm-12">
@@ -90,7 +90,7 @@
 											</div>
 											<h4><a href="{{ URL::to('/site/featuredAlbum/'.$featuredalbum->id ) }}" >{{$featuredalbum->album_name}}</a></h4>
 										</div>
-											<p>ESP is a Forest/Dark Psychedelic project from Kumanovo, Macedonia started by Nikola Krstevski in 2010.  After getting infected by psytrance and DJing…</p>
+											<p>{{$featuredalbum->album_description}}	</p>
 											<a href="#" class="view-all"><span>Read More </span><i class="fa fa-angle-double-right view-all-icon"></i> </a>
 										</div>
 									</div>
@@ -98,13 +98,14 @@
 							</div>
 						</div>
 					</div>@endforeach
-					<!--<div class="col-md-3 latest-gallery">
-						<h2><span>News</span> </h2>
+					<div class="col-md-4 latest-gallery">
+						<h2><span>Shop</span> </h2>
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="latest-content">
+									<a href="{{ url('/site/shop') }}">
 									<div class="latest-content-image">
-										<img src="{{asset('/images/photos/photo15.jpg')}}" alt="" />
+										<img src="{{asset('/images/shop1.png')}}" alt="" />
 									</div>
 									<div class="latest-content-info">
 
@@ -112,9 +113,9 @@
 											<div class="headicon"><div class="icon">
 												<i class="fa fa-newspaper-o" aria-hidden="true"></i>
 											</div>
-											<h4>We release our first Compilation and Launched the Madshop....life is good!</h4>
+											<h4><a href="{{ url('/site/shop') }}">Shop</a></h4>
 											</div>
-											<p>We wanted to do this way earlier, but we finally did get around to doing it, we kicked out some other stuff out of the way got the important stuff together.…</p>
+											<p>We wanted to do this way earlier, but we finally did get around to doing it, we kicked out some other stuff out of the way .…</p>
 											<a href="#" class="view-all"><span>Read More </span><i class="fa fa-angle-double-right view-all-icon"></i> </a>
 										</div>
 									</div>
@@ -122,7 +123,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-3 latest-artist">
+					<!--<div class="col-md-3 latest-artist">
 						<h2><span>Shop</span> </h2>
 						<div class="row">
 							<div class="col-sm-12">
