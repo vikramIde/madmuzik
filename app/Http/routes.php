@@ -11,7 +11,15 @@
 |
 */
 
-Route::get('/', 'WebsiteController@getHome');
+
 Route::controller('site', 'WebsiteController');
+
 Route::controller('admin', 'AdminController');
 
+
+Route::get('/', 'WebsiteController@getHome');
+
+Route::get('myname', function(){
+
+	return 'Hello World';
+});
