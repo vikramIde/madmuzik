@@ -1,5 +1,8 @@
 @extends('website.app')
 @section('content')
+<style>
+   .meta a{    line-height: 30px;} 
+</style>
 	<section id="breadcrumbs">
 		<div class="container"><a href="index.html">Home</a> <i class="fa fa-angle-double-right"></i> <a href="albums.html">Albums</a> <i class="fa fa-angle-double-right"></i> Album Details</div>
 	</section>
@@ -59,8 +62,8 @@
 				<div class="container">
 				<div class="album-banner">
 					@foreach($albumDetails as $album)
-					<div class="banner-image">
-						<img src="{{$album->album_mainart}}" style="height:500px" alt="" class="img-responsive"/>
+					<div class="banner-image1">
+						<img src="{{$album->album_mainart}}" style="" alt="" class="img-responsive"/>
 					</div>
 					<div class="row">
 						<div class="col-sm-9 album-title">
@@ -98,80 +101,33 @@
 				</div>
 
 				<!-- featured albums -->
-				<h2>Featured <span>Albums</span></h2>
+				<h2>Other <span>Albums</span></h2>
 				<div class="row">
+					@foreach($randomAlbumlist as $randalbum)
 					<div class="col-sm-6 col-md-3">
 						<div class="latest-content">
-							<a href="#">
+							<a href="{{ URL::to('/site/viewartist/'.$randalbum->id ) }}">
 								<div class="latest-content-image">
-									<img src="{{$album->album_art}}" alt="">
+								@if($randalbum->album_art !='')
+									<img src="{{$randalbum->album_art}}" alt="" />
+								@else
+								  <img src="{{asset('/images/music1.png')}}" alt="" />
+								@endif
 								</div>
 								<div class="latest-content-info">
+
 									<div class="meta">
 										<div class="icon">
 											<i class="fa fa-user"></i>
-										</div>
-										<h4>Dj Charlie White</h4>
-										<p>Deep House</p>
+										</div><!-- you can change this to anywhere -->
+										<h4><a href="{{ URL::to('/site/viewartist/'.$randalbum->id ) }}" >{{$randalbum->album_name}}</a></h4>
+										<p>{{$randalbum->artist_title}}</p>
 									</div>
 								</div>
 							</a>
 						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-						<div class="latest-content">
-							<a href="#">
-								<div class="latest-content-image">
-									<img src="{{$album->album_art}}" alt="">
-								</div>
-								<div class="latest-content-info">
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-user"></i>
-										</div>
-										<h4>Aaron LaCrate</h4>
-										<p>Trance, Rock</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-						<div class="latest-content">
-							<a href="#">
-								<div class="latest-content-image">
-									<img src="{{$album->album_art}}" alt="">
-								</div>
-								<div class="latest-content-info">
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-user"></i>
-										</div>
-										<h4>Dj Charlie White</h4>
-										<p>Deep House</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-						<div class="latest-content">
-							<a href="#">
-								<div class="latest-content-image">
-									<img src="{{$album->album_art}}" alt="">
-								</div>
-								<div class="latest-content-info">
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-user"></i>
-										</div>
-										<h4>Aaron LaCrate</h4>
-										<p>Trance, Rock</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
+					</div>	
+					@endforeach				
 				</div>
 			</div>	
 			</div>

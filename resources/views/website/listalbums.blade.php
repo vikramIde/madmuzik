@@ -1,5 +1,8 @@
 @extends('website.app')
 @section('content')
+<style>
+   .meta a{    line-height: 30px;} 
+</style>
 	<section id="breadcrumbs">
 		<div class="container"><a href="index.html">Home</a> <i class="fa fa-angle-double-right"></i> Albums</div>
 	</section>
@@ -38,6 +41,7 @@
 											<i class="fa fa-headphones"></i>
 										</div>
 										<h4><a href="{{ URL::to('/site/viewalbum/'.$album->id ) }}" >{{$album->album_name}}</a></h4>
+										<p>	</p>
 										
 									</div>
 								</div>
@@ -48,11 +52,11 @@
 				</div>
 			</div>
 
-			<ul class="pagination">
+			<!-- <ul class="pagination">
 				<li class="current"><a href="#">1</a></li>
 				<li><a href="#">2</a></li>
 				<li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-			</ul>
+			</ul> -->
 		</section>
 	</main> <!-- end main content area -->
 

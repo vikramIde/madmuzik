@@ -2095,4 +2095,8 @@ body.fixed-left .side-menu.left {
     margin-left: 0px;
     margin-top: 0px;
   }
+}.banner-image1 img {
+    width: 40% !important;
+    margin: 0 auto;
+    padding: 20px;
 }

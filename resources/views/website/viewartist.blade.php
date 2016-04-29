@@ -85,80 +85,33 @@
 						</ul>
 					</div>
 				</div>-->
-				<h2>Featured <span>Artists</span></h2>
+				<h2>Other <span>Artists</span></h2>
 				<div class="row">
+					@foreach($randomArtistlist as $randartist)
 					<div class="col-sm-6 col-md-3">
 						<div class="latest-content">
-							<a href="#">
+							<a href="{{ URL::to('/site/viewartist/'.$randartist->id ) }}">
 								<div class="latest-content-image">
-									<img src="{{$artist->artist_image}}" alt="">
+								@if($randartist->artist_image !='')
+									<img src="{{$randartist->artist_image}}" alt="" />
+								@else
+								  <img src="{{asset('/images/music1.png')}}" alt="" />
+								@endif
 								</div>
 								<div class="latest-content-info">
+
 									<div class="meta">
 										<div class="icon">
 											<i class="fa fa-user"></i>
-										</div>
-										<h4>Dj Charlie White</h4>
-										<p>Deep House</p>
+										</div><!-- you can change this to anywhere -->
+										<h4><a href="{{ URL::to('/site/viewartist/'.$randartist->id ) }}" >{{$randartist->artist_name}}</a></h4>
+										<p>{{$randartist->artist_title}}</p>
 									</div>
 								</div>
 							</a>
 						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-						<div class="latest-content">
-							<a href="#">
-								<div class="latest-content-image">
-									<img src="{{$artist->artist_image}}" alt="">
-								</div>
-								<div class="latest-content-info">
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-user"></i>
-										</div>
-										<h4>Aaron LaCrate</h4>
-										<p>Trance, Rock</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-						<div class="latest-content">
-							<a href="#">
-								<div class="latest-content-image">
-									<img src="{{$artist->artist_image}}" alt="">
-								</div>
-								<div class="latest-content-info">
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-user"></i>
-										</div>
-										<h4>Dj Charlie White</h4>
-										<p>Deep House</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-						<div class="latest-content">
-							<a href="#">
-								<div class="latest-content-image">
-									<img src="{{$artist->artist_image}}" alt="">
-								</div>
-								<div class="latest-content-info">
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-user"></i>
-										</div>
-										<h4>Aaron LaCrate</h4>
-										<p>Trance, Rock</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
+					</div>	
+					@endforeach				
 				</div>
 			</div>	
 		</section>

@@ -848,9 +848,8 @@ a.view-all {
 	padding: 0px;
 }
 .headicon {
-    height: auto;
-    float: none;
-    display: flex;
+   height: 61px;
+    display: block;
     margin: 2px 0 5px 0;
     border-bottom: 1px solid #F69028;
     border-bottom-style: dotted;
@@ -2899,4 +2898,10 @@ header {
     vertical-align: -15%;
 }i.fa.orange {
     margin-right: 5px;
+}.banner-image1 img {
+    width: 50% !important;
+    margin: 0 auto;
+    padding: 20px;
+}.headicon h4 a {
+    padding: 5px 0;
 }

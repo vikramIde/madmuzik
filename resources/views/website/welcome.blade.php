@@ -75,8 +75,8 @@
 								<div class="latest-content">
 									<a href="{{ URL::to('/site/featuredAlbum/'.$featuredalbum->id ) }}">
 									<div class="latest-content-image">
-										@if($featuredalbum->artist_image !='')
-										<img src="{{$featuredalbum->artist_image}}" alt="" />
+										@if($featuredalbum->album_art !='')
+										<img src="{{$featuredalbum->album_art}}" alt="" />
 										@else
 									  	<img src="{{asset('/images/music1.png')}}" alt="" />
 										@endif
