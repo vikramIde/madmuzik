@@ -26,7 +26,7 @@
 									<p class="text-muted font-13 m-b-30">
 	                                </p>
 	                                
-									<form class="form-horizontal" role="form" data-parsley-validate="" novalidate="">
+									<form class="form-horizontal" role="form" data-parsley-validate="" novalidate="" action="uploadartistdb.php"> 
 										<div class="form-group">
 											<label for="inputEmail3" class="col-sm-4 control-label">Artist Name</label>
 											<div class="col-sm-7">
@@ -99,7 +99,7 @@
 											<label for="webSite" class="col-sm-4 control-label">Updated At</label>
 											<div class="col-sm-7">
 												<div class="input-group">
-													<input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker">
+													<input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose">
 													<span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
 												</div><!-- input-group -->
 											</div>

@@ -200,6 +200,8 @@
 		</section> -->
 
 		<!-- latest content section -->
+
+		<?php //dd($featuredArtist) ?>
 		<section id="latest-content">
 			<div class="container">
 				<div class="row">

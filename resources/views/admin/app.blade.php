@@ -37,37 +37,42 @@
             var resizefunc = [];
         </script>
 
+        
         <!-- jQuery  -->
         <script src="{{asset('/js/admin/jquery.min.js')}}"></script>
         <script src="{{asset('/js/admin/bootstrap.min.js')}}"></script>
         <script src="{{asset('/js/admin/detect.js')}}"></script>
         <script src="{{asset('/js/admin/fastclick.js')}}"></script>
-
         <script src="{{asset('/js/admin/jquery.slimscroll.js')}}"></script>
         <script src="{{asset('/js/admin/jquery.blockUI.js')}}"></script>
         <script src="{{asset('/js/admin/waves.js')}}"></script>
         <script src="{{asset('/js/admin/wow.min.js')}}"></script>
         <script src="{{asset('/js/admin/jquery.nicescroll.js')}}"></script>
         <script src="{{asset('/js/admin/jquery.scrollTo.min.js')}}"></script>
-
-        <script src="{{asset('/js/admin/peity/jquery.peity.min.js')}}"></script>
-
-        <!-- jQuery  -->
-        <script src="{{asset('/js/admin/jquery.waypoints.js')}}"></script>
-        <script src="{{asset('/js/admin/jquery.counterup.min.js')}}"></script>
-
-
-
-        <script src="{{asset('/js/admin/morris.min.js')}}"></script>
-        <script src="{{asset('/js/admin/raphael-min.js')}}"></script>
-
-        <script src="{{asset('/js/admin/jquery.knob.js')}}"></script>
-
-        <script src="{{asset('/js/admin/jquery.dashboard.js')}}"></script>
-
         <script src="{{asset('/js/admin/jquery.core.js')}}"></script>
         <script src="{{asset('/js/admin/jquery.app.js')}}"></script>
-
+		<script src="{{asset('/js/admin/summernote.min.js')}}"></script>
+        <script>
+            jQuery(document).ready(function(){
+                $('.summernote').summernote({
+                    height: 350,                 // set editor height
+                    minHeight: null,             // set minimum height of editor
+                    maxHeight: null,             // set maximum height of editor
+                    focus: false                 // set focus to editable area after initializing summernote
+                });                
+                $('.inline-editor').summernote({
+                    airMode: true            
+                });
+            });
+        </script>
+        <script src="{{asset('/js/admin/peity/jquery.peity.min.js')}}"></script>
+        <script src="{{asset('/js/admin/jquery.waypoints.js')}}"></script>
+        <script src="{{asset('/js/admin/jquery.counterup.min.js')}}"></script>
+        <script src="{{asset('/js/admin/morris.min.js')}}"></script>
+        <script src="{{asset('/js/admin/raphael-min.js')}}"></script>
+        <script src="{{asset('/js/admin/jquery.knob.js')}}"></script>
+        <script src="{{asset('/js/admin/jquery.dashboard.js')}}"></script>
+	
         <script type="text/javascript">
             jQuery(document).ready(function($) {
                 $('.counter').counterUp({
@@ -217,6 +222,5 @@
 				
 			});
 		</script>
-
 </body>
 </html>
