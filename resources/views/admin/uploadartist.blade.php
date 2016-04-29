@@ -104,7 +104,7 @@
 												</div><!-- input-group -->
 											</div>
 										</div>
-										<!-- <div class="form-group">
+										<!-- <div class="form-group">dgfdfgdfgdfg
 											<div class="col-sm-offset-4 col-sm-8">
                                                 <div class="checkbox">
                                                     <input id="remember-2" type="checkbox" data-parsley-multiple="remember-2" data-parsley-id="26">
