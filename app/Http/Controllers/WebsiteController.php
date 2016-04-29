@@ -19,7 +19,7 @@ class WebsiteController extends Controller
 
     }
 
-//here we added 
+//here we added ....
 
     public function getHome(){
 
@@ -37,6 +37,7 @@ class WebsiteController extends Controller
         
         return view('website.aboutus');
     }
+
     public function getPartycalender(){
         
         return view('website.partycalender');
