@@ -18,5 +18,9 @@ class AdminController extends Controller
     	return view('admin/welcome');
 
     }
+    public function getUploadartist(){
+        
+        return view('admin.uploadartist');
+    }
 	
 }

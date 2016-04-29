@@ -6,11 +6,11 @@
 		<div class="wrapper-page">
 			<div class="card-box">
 				<div class="panel-heading">
-					<h3 class="text-center"> Sign In to <strong class="text-custom">UBold</strong></h3>
+					<h3 class="text-center"> Sign In to <strong class="text-custom">Madmuzik.net</strong></h3>
 				</div>
 
 				<div class="panel-body">
-					<form class="form-horizontal m-t-20" action="http://coderthemes.com/ubold_1.5/dark_1/index.html">
+					<form class="form-horizontal m-t-20" method="post" action="{{ url('/admin/uploadartist') }}">
 
 						<div class="form-group ">
 							<div class="col-xs-12">
@@ -48,7 +48,7 @@
 							</div>
 						</div>
 						
-						<div class="form-group m-t-20 m-b-0">
+						<!-- <div class="form-group m-t-20 m-b-0">
 							<div class="col-sm-12 text-center">
 								<h4><b>Sign in with</b></h4>
 							</div>
@@ -68,7 +68,7 @@
 		                           <i class="fa fa-google-plus m-r-5"></i> Google+
 		                        </button>
 							</div>
-						</div>
+						</div> -->
 					</form>
 
 				</div>
