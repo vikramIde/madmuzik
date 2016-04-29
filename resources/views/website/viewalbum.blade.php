@@ -17,33 +17,33 @@
 		<section id="content">
 				<div class="container">
 				<div class="album-banner">
+					<div class="row event-info">
 					@foreach($albumDetails as $album)
-					<div class="banner-image1">
-						<img src="{{$album->album_mainart}}" style="" alt="" class="img-responsive"/>
+					<div class="banner-image col-md-7">
+						<img src="{{$album->album_mainart}}" style="" alt="" class="img-responsive" style="padding:20px;"/>
 					</div>
-					<div class="row">
-						<div class="col-sm-9 album-title">
-							<div class="col-md-6"><h4>{{$album->album_name}}</h4>
-							<h4 class="orange">Release date: <span class="white">{{$album->album_release_date}}</span></h4>
-							<h4 class="orange">Compiled By: <span class="white">{{$album->album_compiled_by}}</span></h4>
-							</div>
-							<div class="col-md-6">
-							<h4 class="orange">Mastering: <span class="white">{{$album->album_mastering}}</span></h4>
-							<h4 class="orange">Artwork: <span class="white">{{$album->album_artwork}}</span></h4>
-							<div class="artist-info" style="margin-top:20px;"><ul class="share clearfix">
-							<li><a href="Laborum voluptas ea ut molestiae ut."><i class="fa fa-lg fa-facebook"></i></a></li>
-							<li><a href="Laborum voluptas ea ut molestiae ut."><i class="fa fa-lg fa-twitter"></i></a></li>
-							<li><a href="Laborum voluptas ea ut molestiae ut."><i class="fa fa-lg fa-flickr"></i></a></li>
-							<li><a href="Laborum voluptas ea ut molestiae ut."><i class="fa fa-lg fa-google-plus"></i></a></li>
-						</ul></div></div>
+					<div class="col-sm-5" style="padding:20px;">
+						<h3 class="event-details">Details</h3>
+						<dl class="dl-horizontal">
+							<dt>Album Name</dt><dd>{{$album->album_name}}</dd>
+							<dt>Release Date :</dt>    			<dd>{{$album->album_release_date}}</dd>
+							<dt>Compiled By :</dt>    			<dd>{{$album->album_compiled_by}}</dd>
+							<dt>Mastering :</dt>     		<dd>{{$album->album_mastering}}</dd>
+							<dt>Artwork :</dt>    		<dd>{{$album->album_artwork}}</dd>
+							<dt>Description :</dt>     		<dd>{{$album->	album_description}}</dd>
+							<br/><div class="artist-info" style="margin-top:20px;"><ul class="share clearfix">
+							<li><a href="{{$album->album_facebook}}"><i class="fa fa-lg fa-facebook"></i></a></li>
+							<li><a href="{{$album->album_facebook}}"><i class="fa fa-lg fa-twitter"></i></a></li>
+							<li><a href="{{$album->album_facebook}}"><i class="fa fa-lg fa-flickr"></i></a></li>
+							<li><a href="{{$album->album_facebook}}"><i class="fa fa-lg fa-google-plus"></i></a></li>
+						</ul></div>
+						</dl>
+
+						<div class="action-buttons">
+							<a href="#">Buy Now</a>
+							<a href="#">Vote</a>
 						</div>
-						<div class="col-sm-3 album-btns">
-							<h5>This album is now available</h5>
-							<ul class="btns">
-								<li><a href="#">Vote</a></li>
-								<li><a href="#">Buy</a></li>
-							</ul>
-						</div>
+					</div>
 					</div>
 					@endforeach
 				</div>

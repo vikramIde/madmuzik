@@ -98,5 +98,9 @@ class WebsiteController extends Controller
         
         return view('website.connect');
     }
+     public function getForm(){
+        
+        return view('website.form');
+    }
     
 }
