@@ -10,17 +10,17 @@
 				</div>
 
 				<div class="panel-body">
-					<form class="form-horizontal m-t-20" method="post" action="{{ url('/admin/uploadartist') }}">
-
+					<form class="form-horizontal m-t-20" method="post" action="{{ url('/admin/login') }}">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<div class="form-group ">
 							<div class="col-xs-12">
-								<input class="form-control" type="text" required="" placeholder="Username">
+								<input class="form-control" name="email" type="text" required="" placeholder="Email">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<div class="col-xs-12">
-								<input class="form-control" type="password" required="" placeholder="Password">
+								<input class="form-control" name="password" type="password" required="" placeholder="Password">
 							</div>
 						</div>
 

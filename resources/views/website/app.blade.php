@@ -13,6 +13,7 @@
 	<script src="{{asset('/js/jquery.flexslider.min.js')}}"></script>
 	<script src="{{asset('/js/scripts.js')}}"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<script src="{{asset('/assets/js/jquery.slimscroll.js')}}"></script>
 	<style>
 	.g-background-default {
 				background-color: #F69028 !important;

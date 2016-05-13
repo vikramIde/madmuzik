@@ -62,104 +62,60 @@
 						<p>Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie.</p>
 					</div>
 				</div>
-				<!--<div class="col-md-4 rightlinks">
-					<div class="rightbar">
-						<ul>
-							<h3>Links</h3>
-							<li><h4 class="orange">WEBSITE: <span class="white">{{$artist->artist_fb}}</span></h4></li>
-							<li><h4 class="orange">SOUNDCLOUD: <span class="white">{{$artist->artist_fb}}</span></h4></li>
-							<li class="social"><h4 class="orange">SOCIAL: </h4>
-								<ul>
-									<li><a href="{{$artist->artist_fb}}"><img src="{{asset('/images/fb.png')}}" class="img-responsive socialicon"/></a></li>
-									<li><a href="{{$artist->artist_fb}}"><img src="{{asset('/images/twitter.png')}}" class="img-responsive socialicon"/></a></li>
-									<li><a href="{{$artist->artist_fb}}"><img src="{{asset('/images/google.png')}}" class="img-responsive socialicon"/></a></li>
-								</ul>
-							</li>
-							<li><h4 class="orange">PHONE: <span class="white">{{$artist->artist_phone}}</span></h4></li><br/>
-							<h3><a href="{{ url('/site/connect') }}" style="text-decoration:underline">Contact Us</a></h3>
-							<h3>Other Artists</h3>
-							<li><a href="{{ url('/site/connect') }}"><h4 class="orange">Arcane</h4></a></li>
-							<li><a href="{{ url('/site/connect') }}"><h4 class="orange">ESP</h4></a></li>
-							<li><a href="{{ url('/site/connect') }}"><h4 class="orange">Tronix</h4></a></li>
-							<li><a href="{{ url('/site/connect') }}"><h4 class="orange">Veav</h4></a></li>
-						</ul>
-					</div>
-				</div>-->
-				<h2>Featured <span>Artists</span></h2>
 				<div class="row">
-					<div class="col-sm-6 col-md-3">
+					<div class="col-md-6"><h2>Other <span>Artists</span></h2>@foreach($randomArtistlist as $randartist)
+					<div class="col-sm-6">						
 						<div class="latest-content">
-							<a href="#">
+							<a href="{{ URL::to('/site/viewartist/'.$randartist->id ) }}">
 								<div class="latest-content-image">
-									<img src="{{$artist->artist_image}}" alt="">
+								@if($randartist->artist_image !='')
+									<img src="{{$randartist->artist_image}}" alt="" />
+								@else
+								  <img src="{{asset('/images/music1.png')}}" alt="" />
+								@endif
 								</div>
 								<div class="latest-content-info">
+
 									<div class="meta">
 										<div class="icon">
 											<i class="fa fa-user"></i>
-										</div>
-										<h4>Dj Charlie White</h4>
-										<p>Deep House</p>
+										</div><!-- you can change this to anywhere -->
+										<h4><a href="{{ URL::to('/site/viewartist/'.$randartist->id ) }}" >{{$randartist->artist_name}}</a></h4>
+										<p>{{$randartist->artist_title}}</p>
 									</div>
 								</div>
 							</a>
 						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
+					</div>	
+					@endforeach	
+					</div>	
+					<div class="col-md-6"><h2>Other <span>Albums</span></h2>
+					@foreach($randomAlbumlist as $randalbum)
+					<div class="col-sm-6">
 						<div class="latest-content">
-							<a href="#">
+							<a href="{{ URL::to('/site/viewartist/'.$randalbum->id ) }}">
 								<div class="latest-content-image">
-									<img src="{{$artist->artist_image}}" alt="">
+								@if($randalbum->album_art !='')
+									<img src="{{$randalbum->album_art}}" alt="" />
+								@else
+								  <img src="{{asset('/images/music1.png')}}" alt="" />
+								@endif
 								</div>
 								<div class="latest-content-info">
+
 									<div class="meta">
 										<div class="icon">
 											<i class="fa fa-user"></i>
-										</div>
-										<h4>Aaron LaCrate</h4>
-										<p>Trance, Rock</p>
+										</div><!-- you can change this to anywhere -->
+										<h4><a href="{{ URL::to('/site/viewartist/'.$randalbum->id ) }}" >{{$randalbum->album_name}}</a></h4>
+										<br/>
 									</div>
 								</div>
 							</a>
 						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-						<div class="latest-content">
-							<a href="#">
-								<div class="latest-content-image">
-									<img src="{{$artist->artist_image}}" alt="">
-								</div>
-								<div class="latest-content-info">
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-user"></i>
-										</div>
-										<h4>Dj Charlie White</h4>
-										<p>Deep House</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-						<div class="latest-content">
-							<a href="#">
-								<div class="latest-content-image">
-									<img src="{{$artist->artist_image}}" alt="">
-								</div>
-								<div class="latest-content-info">
-									<div class="meta">
-										<div class="icon">
-											<i class="fa fa-user"></i>
-										</div>
-										<h4>Aaron LaCrate</h4>
-										<p>Trance, Rock</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
+					</div>	
+					@endforeach				
+				</div></div>
 			</div>	
 		</section>
 	</main> 
