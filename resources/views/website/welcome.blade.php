@@ -116,7 +116,7 @@
 											<h4><a href="{{ url('/site/shop') }}">Shop</a></h4>
 											</div>
 											<p>We wanted to do this way earlier, but we finally did get around to doing it, we kicked out some other stuff out of the way .…</p>
-											<a href="#" class="view-all"><span>Read More </span><i class="fa fa-angle-double-right view-all-icon"></i> </a>
+											<a href="{{ url('/site/shop') }}" class="view-all"><span>Read More </span><i class="fa fa-angle-double-right view-all-icon"></i> </a>
 										</div>
 									</div>
 								</div>
