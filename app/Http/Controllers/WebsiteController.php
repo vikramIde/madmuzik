@@ -19,17 +19,13 @@ class WebsiteController extends Controller
 
     }
 
-//here we added ....... ..
-
     public function getHome(){
 
-        $featuredArtist=Artist::select('id','artist_name', 'artist_title','artist_image','artist_fb','artist_description')->where('artist_featured','=',1)->get();
-
-        $featuredAlbum=Album::select('id','album_name', 'album_art','album_facebook','album_description')->where('album_featured','=',1)->get();
-
+        $featuredArtist='';
+        $featuredAlbum='';
         $featuredSong='';
-        //dd($featuredAlbum);
-        return view('website.welcome')->with(array('featuredArtist'=>$featuredArtist,'featuredAlbum'=>$featuredAlbum));
+
+        return view('website.welcome')->with(array('featuredArtist'=>$featuredArtist,'featuredSong'=>$featuredSong,'featuredAlbum'=>$featuredAlbum));
 
     }
 
@@ -56,35 +52,23 @@ class WebsiteController extends Controller
 
             $albumDetails = Album::where('id', $id)->get();
 
-            $randomAlbumlist = Album::select('id','album_name', 'album_art','album_description')->orderByRaw("RAND()")->take(2)->get(); 
-
-            $randomArtistlist = Artist::select('id','artist_name', 'artist_title','artist_image')->orderByRaw("RAND()")->take(2)->get(); 
-        
-
-           // dd($randomAlbumlist);
-
-            return view('website.viewalbum')->with( array('albumDetails' => $albumDetails,'randomArtistlist'=>$randomArtistlist,'randomAlbumlist'=>$randomAlbumlist));
-           
+            return view('website.viewalbum')->with( array('albumDetails' => $albumDetails ));
         
     }
 
     public function getListartist(){
  
         $artistList = Artist::select('id','artist_name', 'artist_title','artist_image')->get();
+        //dd($artistList);
         return view('website.listartist')->with(array('artistList'=>$artistList));
-        
+        //skljhkhkl
     }
 
     public function getViewartist($id){
 
         $artistDetail = Artist::where('id', $id)->get();
-
-         $randomAlbumlist = Album::select('id','album_name', 'album_art','album_description')->orderByRaw("RAND()")->take(2)->get(); 
-
-        $randomArtistlist = Artist::select('id','artist_name', 'artist_title','artist_image')->orderByRaw("RAND()")->take(2)->get(); 
         
-        return view('website.viewartist')->with(array('artistDetail'=>$artistDetail,'randomArtistlist'=>$randomArtistlist,'randomAlbumlist'=>$randomAlbumlist));
-
+        return view('website.viewartist')->with(array('artistDetail'=>$artistDetail));
     }
 
 
@@ -97,10 +81,6 @@ class WebsiteController extends Controller
     public function getConnect(){
         
         return view('website.connect');
-    }
-     public function getForm(){
-        
-        return view('website.form');
     }
     
 }

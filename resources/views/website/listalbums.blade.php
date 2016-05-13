@@ -42,7 +42,6 @@
 										</div>
 										<h4><a href="{{ URL::to('/site/viewalbum/'.$album->id ) }}" >{{$album->album_name}}</a></h4>
 										<p>	</p>
-										
 									</div>
 								</div>
 							</a>
