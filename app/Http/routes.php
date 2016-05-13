@@ -23,3 +23,9 @@ Route::get('myname', function(){
 
 	return 'Hello World';
 });
+
+Route::get('admin/logout',function(){
+	Session::flush();
+	Auth::logout();
+	return Redirect::to('admin/login');
+});
