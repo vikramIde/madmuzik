@@ -28,6 +28,7 @@ class CreateAlbumsTable extends Migration
             $table->string('album_youtubeVideo');
             $table->string('album_facebook');
             $table->integer('album_featured');
+            $table->string('status');
             $table->integer('artist_id')->unsigned();
             $table->timestamps();
 

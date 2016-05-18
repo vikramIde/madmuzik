@@ -30,11 +30,13 @@
 					@endforeach
 				</div>-->
 				<div class="row artist-info">
+				@foreach($artistDetail as $artist)
 					<div class="col-sm-4 col-md-3">
-						@foreach($artistDetail as $artist)
+						
+
 						<div class="latest-content">
 							<div class="latest-content-image">
-								<img src="{{$artist->artist_image}}" alt="" class="img-responsive"/>
+								<img src="{{asset($artist->artist_image)}}" alt="" class="img-responsive"/>
 							</div>
 							<div class="latest-content-info">
 								<div class="meta">
@@ -52,15 +54,14 @@
 							<li><a href="{{$artist->artist_fb}}"><i class="fa fa-lg fa-flickr"></i></a></li>
 							<li><a href="{{$artist->artist_fb}}"><i class="fa fa-lg fa-google-plus"></i></a></li>
 						</ul>
-						@endforeach
+						
 					</div>
 					<div class="col-sm-8 col-md-9">
-						<h3>Biography Heading of Artist</h3>
-						<p>Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie.</p>
-						<p>Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie.</p>
-						<h4>Smaller heading</h4>
-						<p>Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie.</p>
+						<h3>Biography of Artist</h3>
+						<?php $x =$artist->artist_description ?>
+						<?php echo str_replace( "", "\r\n", $x ); ?>
 					</div>
+					@endforeach
 				</div>
 				<div class="row">
 					<div class="col-md-6"><h2>Other <span>Artists</span></h2>@foreach($randomArtistlist as $randartist)
@@ -69,7 +70,7 @@
 							<a href="{{ URL::to('/site/viewartist/'.$randartist->id ) }}">
 								<div class="latest-content-image">
 								@if($randartist->artist_image !='')
-									<img src="{{$randartist->artist_image}}" alt="" />
+									<img src="{{asset($randartist->artist_image)}}" alt="" />
 								@else
 								  <img src="{{asset('/images/music1.png')}}" alt="" />
 								@endif
@@ -80,7 +81,7 @@
 										<div class="icon">
 											<i class="fa fa-user"></i>
 										</div><!-- you can change this to anywhere -->
-										<h4><a href="{{ URL::to('/site/viewartist/'.$randartist->id ) }}" >{{$randartist->artist_name}}</a></h4>
+										<h4><a href="{{ URL::to('/site/viewartist/'.$randartist->id ) }}" >      {{$randartist->artist_name}}</a></h4>
 										<p>{{$randartist->artist_title}}</p>
 									</div>
 								</div>

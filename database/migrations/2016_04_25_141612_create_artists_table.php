@@ -16,6 +16,8 @@ class CreateArtistsTable extends Migration
         Schema::create('artists', function (Blueprint $table) {
             $table->increments('id');
             $table->string('artist_name');
+            $table->string('artist_code');
+            $table->string('artist_soundcloud');
             $table->string('artist_image');
             $table->string('artist_title');
             $table->string('artist_fb');
@@ -23,6 +25,7 @@ class CreateArtistsTable extends Migration
             $table->string('artist_address');
             $table->string('artist_description');
             $table->integer('followers');
+            $table->string('status');
             $table->integer('artist_featured');
             $table->timestamps();
         });

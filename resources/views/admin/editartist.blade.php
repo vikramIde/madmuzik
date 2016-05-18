@@ -1,5 +1,6 @@
 @extends('admin.app')
 @section('content')
+
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <script>tinymce.init({ selector:'textarea#spnotes' });</script>
 
@@ -51,81 +52,76 @@
 			                          @endif
 			                        @endforeach
 			                      </div>
-									<form class="form-horizontal" role="form"  enctype="multipart/form-data" method="POST" action="{{ url('/admin/uploadartist') }}"> 
-										 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+			                      @foreach($artistDetail as $artist)
+									<form class="form-horizontal" role="form"  enctype="multipart/form-data" method="POST" action="{{ url('/admin/editartist/') }}"> 
+
+										 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+										 <input type="hidden" name="id" value="{{$artist->id}}" />
 										<div class="form-group">
 											<label  class="col-sm-4 control-label">Artist Name</label>
 											<div class="col-sm-7">
-												<input  tye="text"   value="{{old('artistname')}}" name="artistname" class="form-control"  placeholder="Artist Name" >
+												<input  tye="text"   value="{{ $artist->artist_name }}" name="artistname" class="form-control"  placeholder="Artist Name" >
 											</div>
 										</div>
 										<div class="form-group">
 											<label  class="col-sm-4 control-label">Artist Title</label>
 											<div class="col-sm-7">
-												<input  type="text" value="{{old('title')}}" name="title" placeholder="Artist Title" class="form-control" >
+												<input  type="text" value="{{ $artist->artist_title }}" name="title" placeholder="Artist Title" class="form-control" >
 											</div>
 										</div>
 										<div class="form-group">
 											<label  class="col-sm-4 control-label">Artist Sound Cloud</label>
 											<div class="col-sm-7">
-												<input  type="text" value="{{old('title')}}" name="soundcloud" placeholder="Artist Title" class="form-control" >
+												<input  type="text" value="{{ $artist->artist_soundcloud }}" name="soundcloud" placeholder="Artist SoundCloud" class="form-control" >
 											</div>
 										</div>
-										<div class="form-group">
-											<label  class="col-sm-4 control-label">Artist Image</label>
-											<div class="col-sm-7">
-												<input  type="file"  name="image" placeholder="Artist Image" class="form-control" >
-											</div>
-										</div>
+										
 										<div class="form-group">
 											<label  class="col-sm-4 control-label">Artist FB</label>
 											<div class="col-sm-7">
-												<input class="form-control" value="{{old('fb')}}" type="text"  name= "fb" placeholder="Artist FB" >
+												<input class="form-control" value="{{ $artist->artist_fb }}" type="text"  name= "fb" placeholder="Artist FB" >
 											</div>
 										</div>
 										<div class="form-group">
 											<label  class="col-sm-4 control-label">Artist Phone</label>
 											<div class="col-sm-7">
-												<input type="text" value="{{old('phone')}}" name= "phone" class="form-control"  placeholder="Phone" >
+												<input type="text" value="{{ $artist->artist_phone }}" name= "phone" class="form-control"  placeholder="Phone" >
 											</div>
 										</div>
 										<div class="form-group">
 											<label  class="col-sm-4 control-label">Artist Address</label>
 											<div class="col-sm-7">
-												<textarea value="{{old('addresse')}}"  name="addresse" class="form-control" id="Album" ></textarea>
+												<textarea  name="addresse" class="form-control" id="Album" >{{ $artist->artist_address }}</textarea>
 											</div>
 										</div>
-								
-										
+										<div class="form-group">
+											<label  class="col-sm-4 control-label">Artist Status</label>
+											<div class="col-sm-7">
+												<select class="form-control" name="status" >
+													<option value="active" <?php if($artist->status=="active"){ echo "selected"; } ?> >Active</option>
+													<option value="inactive" <?php if($artist->status=="inactive"){ echo "selected"; } ?> >In-ctive</option>
+												</select>
+											</div>
+										</div>
 										<div class="form-group">
 											<label  class="col-sm-4 control-label">Artist Description</label>
 											<div class="col-sm-7">
-												<textarea name="description" value="{{old('description')}}" class="form-control" id="spnotes" ></textarea>
+												<textarea name="description"  class="form-control" id="spnotes" >{{ $artist->artist_description }}</textarea>
 											</div>
 										</div>
 
 										<div class="form-group">
-											<label  class="col-sm-4 control-label">Followers</label>
-											<div class="col-sm-7">
-												<input type="text"  name= "follower" placeholder="Followers" >
-											</div>
-										</div>
-										<div class="form-group">
 											<div class="col-sm-offset-4 col-sm-8">
-												<input type="submit" value="Register" class="btn btn-primary waves-effect waves-light" />
+												<input type="submit" value="Update" class="btn btn-primary waves-effect waves-light" />
 													
 												<input type="reset" value="Cancel" class="btn btn-default waves-effect waves-light m-l-5" />
 											</div>
 										</div>
 									</form>
+								@endforeach
 								</div>
 							</div> 
 						</div> 
-                        
-    
-    
-     
-
             		</div> <!-- container -->
                                
                 </div> <!-- content -->

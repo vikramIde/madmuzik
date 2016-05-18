@@ -11,21 +11,28 @@
 |
 */
 
-
-Route::controller('site', 'WebsiteController');
-
-Route::controller('admin', 'AdminController');
+Route::group(['middleware' => ['web']], function () {
 
 
-Route::get('/', 'WebsiteController@getHome');
+    
+	
+});
+// routes here
 
-Route::get('myname', function(){
+	Route::controller('site', 'WebsiteController');
+
+	Route::controller('admin', 'AdminController');
+
+
+	Route::get('/', 'WebsiteController@getHome');
+
+	Route::get('myname', function(){
 
 	return 'Hello World';
-});
+	});
 
-Route::get('admin/logout',function(){
+	Route::get('admin/logout',function(){
 	Session::flush();
 	Auth::logout();
 	return Redirect::to('admin/login');
-});
+	});

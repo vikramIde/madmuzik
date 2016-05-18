@@ -37,7 +37,7 @@
 							<a href="{{ URL::to('/site/viewartist/'.$artist->id ) }}">
 								<div class="latest-content-image">
 								@if($artist->artist_image !='')
-									<img src="{{$artist->artist_image}}" alt="" />
+									<img src="{{asset($artist->artist_image)}}" alt="" />
 								@else
 								  <img src="{{asset('/images/music1.png')}}" alt="" />
 								@endif

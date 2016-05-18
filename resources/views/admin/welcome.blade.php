@@ -2,7 +2,30 @@
 @section('content')
 <div class="account-pages"></div>
 		<div class="clearfix"></div>
-		
+		 @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                          <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                              @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                              @endforeach
+                            </ul>
+                        </div>
+                      @endif
+
+                      <div class="flash-message">
+                        @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                          @if(Session::has('alert-' . $msg))
+
+                              <p class="alert alert-{{ $msg }}">
+                                {{ Session::get('alert-' . $msg) }} 
+                                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;
+                                </a>
+                              </p>
+                          @endif
+                        @endforeach
+                      </div>
+                      
 		<div class="wrapper-page">
 			<div class="card-box">
 				<div class="panel-heading">
@@ -11,7 +34,9 @@
 
 				<div class="panel-body">
 					<form class="form-horizontal m-t-20" method="post" action="{{ url('/admin/login') }}">
+
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						
 						<div class="form-group ">
 							<div class="col-xs-12">
 								<input class="form-control" name="email" type="text" required="" placeholder="Email">

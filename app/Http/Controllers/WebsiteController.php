@@ -70,7 +70,7 @@ class WebsiteController extends Controller
 
     public function getListartist(){
  
-        $artistList = Artist::select('id','artist_name', 'artist_title','artist_image')->get();
+        $artistList = Artist::select('id','artist_name', 'artist_description','artist_title','artist_image')->get();
         return view('website.listartist')->with(array('artistList'=>$artistList));
         
     }
