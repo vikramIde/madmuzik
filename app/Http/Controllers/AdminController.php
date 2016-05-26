@@ -86,7 +86,131 @@ class AdminController extends Controller
 
     }
 
-    public function getUploadartist(){
+   
+/** 
+    All Album Related Functions
+    
+**/
+
+    public function getUploadalbum(){
+         
+        $artistList = Artist::select('id','artist_name')->get();
+        return view('admin.uploadalbum')->with(array('artistList'=>$artistList));
+    }
+
+     public function getListalbum(){
+
+        $albumList = Album::with(['artist'])->select('id','album_name', 'album_art')->get();
+        
+        //dd($albumList);
+        return view('admin.listalbum')->with(array('albumList'=> $albumList));
+        
+    }
+
+    public function getViewalbum($id){
+
+            $albumDetails = Album::where('id', $id)->get();
+
+            return view('admin.viewalbum')->with( array('albumDetails' => $albumDetails,'randomArtistlist'=>$randomArtistlist,'randomAlbumlist'=>$randomAlbumlist));
+           
+        
+    }
+
+    public function postUploadalbum(Request $request){
+         $artistList = Artist::select('id','artist_name')->get();
+         $rules = array(
+            'name' =>'required|max:255',
+            'description' =>'required'
+
+            //'empid'=>'required' /**For future use **/
+            );
+
+          $validator = Validator::make(Input::all(), $rules);
+
+            if ($validator->fails())
+            {
+
+                return redirect('admin/uploadalbum')->withErrors($validator);
+
+            }else {
+
+                    $album = new Album();
+
+                    $album->album_name= Input::get('name');
+                    //$album->album_title= Input::get('title');
+                    $album->album_release_date= Input::get('releaseDate');
+                    $album->album_compiled_by= Input::get('compiledBy');
+                    $album->album_mastering= Input::get('mastering');
+                    $album->album_artwork= Input::get('artwork');
+                    $album->album_soundcloud= Input::get('soundcloud');
+                    $album->album_youtube= Input::get('youtube');
+                    //$album->album_youtubeVideo= Input::get('youtubeVideo');
+                    $album->album_facebook= Input::get('fb');
+                    $album->artist_id= Input::get('artist');
+                    $album->album_description= Input::get('description');
+
+                    $inv='MAD_ALBUM';
+                    $dateValue=date('d-m-Y');
+                    $time=strtotime($dateValue);
+                    $year=date("Y",$time);
+                    $count = Album::max('id');
+                    if(is_null ($count))
+                        $count=0;
+
+                    $count = $count+1;
+                    $counti = str_pad($count, 4, '0', STR_PAD_LEFT);
+                    $albumcode=$inv.'-'.''.$year.'-'.''.$counti;
+
+                    $album->album_code = $albumcode;
+                
+                 if(Input::hasFile('image_small')){
+
+                    $image = Input::file('image_small');
+                    $filename = $image->getClientOriginalName();
+
+                    if (!File::exists(public_path('images/album/'.$albumcode.'/small/'.$filename))){ 
+                    $path = public_path('images/album/'.$albumcode.'/small');
+
+                    // dd(public_path('images/album/'.$albumcode));
+
+                    File::makeDirectory(public_path('images/album/'.$albumcode));
+                    Image::make($image->getRealPath())->resize(256,256)->save($path.'/'.$filename);
+
+                    $album->album_art = 'images/album/'.$albumcode.'/small/'.$filename ;
+
+                    }
+                }
+
+                if(Input::hasFile('image_big')){
+
+                    $image1 = Input::file('image_big');
+                    $filename = $image1->getClientOriginalName();
+
+                    if (!File::exists(public_path('images/album/'.$albumcode.'/large/'.$filename))){ 
+                    $path = public_path('images/album/'.$albumcode.'/large');
+
+                    File::makeDirectory(public_path('images/album/'.$albumcode));
+                    Image::make($image1->getRealPath())->resize(1140,1140)->save($path.'/'.$filename);
+
+                    $album->main_art = 'images/album/'.$albumcode.'/large/'.$filename ;
+
+                    }
+
+                } 
+
+                $album->save();
+            }
+
+        $request->session()->flash('alert-success', 'Artist Added Successfull ');
+        return view('admin.uploadalbum')->with(array('artistList'=>$artistList));
+    }
+
+
+/** 
+    All Artist Related Functions
+    
+**/
+     public function getUploadartist(){
         
         return view('admin.uploadartist');
     }
@@ -97,6 +221,7 @@ class AdminController extends Controller
             'artistname' =>'required|max:255',
             'title' =>'required|max:255',
             'description'=>'required|min:255'
+
             //'empid'=>'required' /**For future use **/
             );
 
@@ -131,12 +256,14 @@ class AdminController extends Controller
 
                 $artist->status ='inactive' ;
 
-                $inv='MAD';
+                $inv='MAD_ARTIST';
                 $dateValue=date('d-m-Y');
                 $time=strtotime($dateValue);
                 $year=date("Y",$time);
+                $count = Artist::max('id');
 
-                $count = Artist::count();
+                if(is_null($count))
+                     $count=0;
 
                 $count = $count+1;
                 $counti = str_pad($count, 4, '0', STR_PAD_LEFT);
@@ -147,7 +274,7 @@ class AdminController extends Controller
                 if(Input::hasFile('image'))
                 {
                     $image1 = Input::file('image');
-                    $filename = $image1->getClientOriginalName();
+                    $filename = $image1->getClientOriginalName();              
 
                     if (!File::exists(public_path('images/artist/'.$artistcode.'/'.$filename))){ 
                     $path = public_path('images/artist/'.$artistcode);
@@ -159,66 +286,12 @@ class AdminController extends Controller
 
                     }
                 } 
-                // File::exists(public_path('images/artist/'.$artistcode)) or File::makeDirectory(public_path('images/artist/'.$artistcode));
 
-                // $path = public_path('images/artist/'.$artistcode.'/'.$filename);
-                // Image::make($image1->getRealPath())->resize(256,256)->save($path);
-                // $artist->artist_image = 'images/artist/'.$artistcode.'/'.$filename;
-
-                //dd($artist);
                 $artist->save();
             }
 
         $request->session()->flash('alert-success', 'Artist Added Successfull ');
         return view('admin.uploadartist');
-    }
-
-    public function getUploadalbum(){
-        
-        $artistList = Artist::select('id','artist_name')->get();
-        return view('admin.uploadalbum')->with(array('artistList'=>$artistList));
-    }
-
-    public function postUploadalbum(){
-        
-         $rules = array(
-            'name' =>'required|max:255',
-            //'title' =>'required|max:255'
-            'description' =>'required'
-            //'empid'=>'required' /**For future use **/
-            );
-
-          $validator = Validator::make(Input::all(), $rules);
-
-            if ($validator->fails())
-            {
-
-                return redirect('admin/uploadalbum')->withErrors($validator);
-
-            }else {
-
-                $artist = new Album();
-
-                $artist->album_name= Input::get('name');
-                //$artist->album_title= Input::get('title');
-                $artist->album_release_date= Input::get('releaseDate');
-                $artist->album_compiled_by= Input::get('compiledBy');
-                $artist->album_mastering= Input::get('mastering');
-                $artist->album_artwork= Input::get('artwork');
-                $artist->album_soundcloud= Input::get('soundcloud');
-                $artist->album_youtube= Input::get('youtube');
-                //$artist->album_youtubeVideo= Input::get('youtubeVideo');
-                $artist->album_facebook= Input::get('fb');
-                $artist->artist_id= Input::get('artist');
-                $artist->album_description= Input::get('description');
-                //twitter
-                //google++
-
-                $artist->save();
-            }
-
-        $request->session()->flash('alert-success', 'Artist Added Successfull ');
-        return view('admin.uploadalbum');
     }
 
     public function getListartist(){
@@ -237,37 +310,18 @@ class AdminController extends Controller
 
     }
 
-    public function getListalbum(){
-
-        $albumList = Album::with(['artist'])->select('id','album_name', 'album_art')->get();
-        
-        //dd($albumList);
-        return view('admin.listalbum')->with(array('albumList'=> $albumList));
-        
-    }
-
-    public function getViewalbum($id){
-
-            $albumDetails = Album::where('id', $id)->get();
-
-            return view('admin.viewalbum')->with( array('albumDetails' => $albumDetails,'randomArtistlist'=>$randomArtistlist,'randomAlbumlist'=>$randomAlbumlist));
-           
-        
-    }
+   
 
     
-    public function getAdduser(){
 
-                return View('admin/adduser');
-    }
-
-public function getEditartist($id){
+    public function getEditartist($id){
 
         $artistDetail = Artist::where('id', $id)->get();
         
         return view('admin.editartist')->with(array('artistDetail'=>$artistDetail));
 
     }
+
 
 public function postEditartist(Request $request){
 
@@ -314,11 +368,29 @@ public function getTogleartiststatus($idstatus){
 
      return redirect()->back();
 }
-public function getDeleteartist(){
 
 
+
+public function getDeleteartist($id){
+
+    $artist = Artist::find(trim($id));
+
+    $artist->status = 'inactive';
+
+    $artist->artist_featured = 0;
+
+    Album::where('artist_id',$id)->update(array('status' => 'inactive','album_featured'=>0));
+
+    return redirect()->back();
 
 }
+
+/** Artist functions ends here **/ 
+
+ public function getAdduser(){
+
+                return View('admin/adduser');
+    }
 
 public function postUser(Request $request){
 
@@ -338,35 +410,35 @@ public function postUser(Request $request){
 
             }else {
 
-            $data = Input::get();
-            $role='admin';
+                        $data = Input::get();
+                        $role='admin';
 
 
-            User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password'])
-            ]);
-                $x = $data;
-                //$data=array();
+                        User::create([
+                        'name' => $data['name'],
+                        'email' => $data['email'],
+                        'password' => bcrypt($data['password'])
+                        ]);
+                            $x = $data;
+                            //$data=array();
 
-                $data = [
-                'data' =>  $data['name'],
-                'password' => $data['password']
-                ];
+                            $data = [
+                            'data' =>  $data['name'],
+                            'password' => $data['password']
+                            ];
 
-                Mail::send('emails.verify', $data, function ($message)  {
+                            Mail::send('emails.verify', $data, function ($message)  {
 
-                $message->from('admin@madmuzik.net', 'MadMuzik');
+                            $message->from('admin@madmuzik.net', 'MadMuzik');
 
-                $message->to('vikrambanand@gmail.com','dsfsd')->subject('Login Credentials for madmuzik.net');
+                            $message->to('vikrambanand@gmail.com','dsfsd')->subject('Login Credentials for madmuzik.net');
 
-            });
+                        });
 
-            $request->session()->flash('alert-success', 'User added!');
-            return redirect('admin/adduser');
-    }
+                        $request->session()->flash('alert-success', 'User added!');
+                        return redirect('admin/adduser');
+                }
 
-}
+        }
 
 }

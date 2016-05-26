@@ -51,60 +51,71 @@
 				                          @endif
 				                        @endforeach
 				                      </div>
-									<form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/uploadalbum') }}"> 
+									<form class="form-horizontal" role="form" enctype="multipart/form-data"  method="POST" action="{{ url('/admin/uploadalbum') }}"> 
 										 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 										<div class="form-group">
 											<label for="inputEmail3" class="col-sm-4 control-label">Album Name</label>
 											<div class="col-sm-7">
-												<input  tye="text" required=""  name="name" class="form-control"  placeholder="Artist Name" >
+												<input  tye="text"   name="name" class="form-control"  placeholder="Album Name" >
 											</div>
 										</div>
 										<div class="form-group">
 											<label for="hori-pass2" class="col-sm-4 control-label">Album Title</label>
 											<div class="col-sm-7">
-												<input  type="text" required="" name="title" placeholder="Album Title" class="form-control" >
+												<input  type="text"  name="title" placeholder="Album Title" class="form-control" >
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="hori-pass2" class="col-sm-4 control-label">Album Release Date</label>
 											<div class="col-sm-7">
-												<input  type="text" required="" name="releaseDate" placeholder="Album Title" class="form-control" >
+												<input  type="text"  name="releaseDate" placeholder="Album Title" class="form-control" >
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="hori-pass2" class="col-sm-4 control-label">compiledBy</label>
 											<div class="col-sm-7">
-												<input  type="text" required="" name="compiledBy" placeholder="Album compiledBy" class="form-control" >
+												<input  type="text" name="compiledBy" placeholder="Album compiledBy" class="form-control" >
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="hori-pass2" class="col-sm-4 control-label">mastering</label>
 											<div class="col-sm-7">
-												<input  type="text" required="" name="mastering" placeholder="Album mastering" class="form-control" >
+												<input  type="text" name="mastering" placeholder="Album mastering" class="form-control" >
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="hori-pass2" class="col-sm-4 control-label">Artwork By</label>
 											<div class="col-sm-7">
-												<input  type="text" required="" name="artwork" placeholder="Album Artwork" class="form-control" >
+												<input  type="text"  name="artwork" placeholder="Album Artwork" class="form-control" >
 											</div>
 										</div>
-
+										<div class="form-group">
+											<label  class="col-sm-4 control-label">Album mini Image</label>
+											<div class="col-sm-7">
+												<input  type="file"  name="image_small" placeholder="Album mini Image" class="form-control" >
+											</div>
+										</div>
+										<div class="form-group">
+											<label  class="col-sm-4 control-label">Album Main Image</label>
+											<div class="col-sm-7">
+												<input  type="file"  name="image_big" placeholder="Album Main Image" class="form-control" >
+											</div>
+										</div>
 										<div class="form-group">
 											<label for="hori-pass2" class="col-sm-4 control-label">soundcloud </label>
 											<div class="col-sm-7">
-												<input  type="text" required="" name="soundcloud" placeholder="Album soundcloud" class="form-control" >
+												<input  type="text" name="soundcloud" placeholder="Album soundcloud" class="form-control" >
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="hori-pass2" class="col-sm-4 control-label">youtube </label>
 											<div class="col-sm-7">
-												<input  type="text" required="" name="youtube" placeholder="Album youtube" class="form-control" >
+												<input  type="text"  name="youtube" placeholder="Album youtube" class="form-control" >
 											</div>
 										</div>
 
@@ -129,7 +140,7 @@
 										<div class="form-group">
 											<label for="webSite" class="col-sm-4 control-label">Album Description</label>
 											<div class="col-sm-7">
-												<textarea name="description" required="" class="form-control" id="spnotes" ></textarea>
+												<textarea name="description"  class="form-control" id="spnotes" ></textarea>
 											</div>
 										</div>
 

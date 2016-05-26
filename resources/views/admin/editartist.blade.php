@@ -113,8 +113,6 @@
 										<div class="form-group">
 											<div class="col-sm-offset-4 col-sm-8">
 												<input type="submit" value="Update" class="btn btn-primary waves-effect waves-light" />
-													
-												<input type="reset" value="Cancel" class="btn btn-default waves-effect waves-light m-l-5" />
 											</div>
 										</div>
 									</form>

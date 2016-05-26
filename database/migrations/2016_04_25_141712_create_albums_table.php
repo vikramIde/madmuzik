@@ -16,13 +16,14 @@ class CreateAlbumsTable extends Migration
          Schema::create('albums', function (Blueprint $table) {
             $table->increments('id');
             $table->string('album_name');
+            $table->string('album_code');
             $table->string('album_art');
+            $table->string('album_mainart');
             $table->string('album_description');
             $table->string('album_release_date');
             $table->string('album_compiled_by');
             $table->string('album_mastering');
             $table->string('album_artwork');
-            $table->string('album_mainart');
             $table->string('album_soundcloud');
             $table->string('album_youtube');
             $table->string('album_youtubeVideo');
