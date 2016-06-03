@@ -29,6 +29,7 @@
                                             <th>Artist Name</th>
                                             <th>Title</th>
                                             <th>Artist Status</th>
+                                            <th>Artist Featured</th>
                                             <th>Action</th>
                                           </tr>
                                         </thead>
@@ -43,6 +44,13 @@
                                                             echo "btn-danger"; $toglvar = "active";
                                                         } ?> " href="{{ URL::to('/admin/togleartiststatus/'.$artist->id.'_'.$toglvar ) }}">{{ $artist->status }} </a>
                                                         </td>
+                                            <td  ><a  onclick="alertIt(); return false;" class="btn <?php if($artist->artist_featured=="1")
+                                                {
+                                                    echo "btn-success"; $toglvarx =0;
+                                                }else {
+                                                    echo "btn-danger"; $toglvarx = 1;
+                                                } ?> " href="{{ URL::to('/admin/togleartistfeatured/'.$artist->id.'_'.$toglvarx ) }}">{{ $artist->artist_featured }} </a>
+                                                </td>
                                             <td><a class="btn btn-info" href="{{ URL::to('/admin/editartist/'.$artist->id ) }}">View More</a></td>
                                              </tr>               
                                         @endforeach
@@ -51,10 +59,6 @@
 							</div> 
 						</div> 
                         
-    
-    
-     
-
             		</div> <!-- container -->
                                
                 </div> <!-- content -->

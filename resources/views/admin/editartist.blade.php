@@ -54,7 +54,6 @@
 			                      </div>
 			                      @foreach($artistDetail as $artist)
 									<form class="form-horizontal" role="form"  enctype="multipart/form-data" method="POST" action="{{ url('/admin/editartist/') }}"> 
-
 										 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 										 <input type="hidden" name="id" value="{{$artist->id}}" />
 										<div class="form-group">
@@ -69,10 +68,12 @@
 												<input  type="text" value="{{ $artist->artist_title }}" name="title" placeholder="Artist Title" class="form-control" >
 											</div>
 										</div>
+
 										<div class="form-group">
-											<label  class="col-sm-4 control-label">Artist Sound Cloud</label>
+											<label for="hori-pass2" class="col-sm-4 control-label">soundcloud ID</label>
+											<span style="font-size: 12px;margin-left: 10px;color: rgb(149, 59, 10);"><a href="https://helgesverre.com/soundcloud/" target="_blank" >To get the ID go to This url and add your user name in the box and click on get id </a></span><br/>
 											<div class="col-sm-7">
-												<input  type="text" value="{{ $artist->artist_soundcloud }}" name="soundcloud" placeholder="Artist SoundCloud" class="form-control" >
+												<input  type="text" name="soundcloud" placeholder="Artist Title" value="{{ $artist->artist_soundcloud }}" class="form-control" >
 											</div>
 										</div>
 										

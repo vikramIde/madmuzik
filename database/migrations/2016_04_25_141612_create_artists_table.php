@@ -10,6 +10,7 @@ class CreateArtistsTable extends Migration
      *
      * @return void
      */
+    
     public function up()
     {
         //ssss
@@ -23,6 +24,7 @@ class CreateArtistsTable extends Migration
             $table->string('artist_fb');
             $table->string('artist_phone');
             $table->string('artist_address');
+            $table->string('artist_youtube');
             $table->string('artist_description');
             $table->integer('followers');
             $table->string('status');

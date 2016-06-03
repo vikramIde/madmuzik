@@ -12,31 +12,18 @@
 	<main>
 		<section id="content">
 			<div class="container">
-				<!--<div class="row artist-info">
-					<div class="col-md-8">
-					@foreach($artistDetail as $artist)
-					<div class="row"><div class="col-md-5"><img src="{{$artist->artist_image}}" alt="" class="img-responsive"/></div>
-					<div class="col-md-7 space">
-						<h4 class="orange">NAME: <span class="white">{{$artist->artist_name}}</span></h4>
-						<h4 class="orange">TITLE: <span class="white">{{$artist->artist_title}}</span></h4>
-						<h4 class="orange">DESCRIPTION: <span class="white">{{$artist->artist_description}}</span></h4>
-					</div>
-					</div><br/>
-					<div class="col-md-12">
-						<iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F40802773&amp;auto_play=false&amp;show_artwork=true&amp;color=bfbfbf"></iframe>
-					</div>
-					<div class="col-md-12">
-					</div>
-					@endforeach
-				</div>-->
 				<div class="row artist-info">
-				@foreach($artistDetail as $artist)
+				@foreach($artistDetail as $artist) 
 					<div class="col-sm-4 col-md-3">
 						
 
 						<div class="latest-content">
 							<div class="latest-content-image">
-								<img src="{{asset($artist->artist_image)}}" alt="" class="img-responsive"/>
+								@if($artist->artist_image !='')
+									<img src="{{asset($artist->artist_image)}}" alt="" />
+								@else
+								  <img src="{{asset('/images/music1.png')}}" alt="" />
+								@endif
 							</div>
 							<div class="latest-content-info">
 								<div class="meta">
@@ -49,22 +36,31 @@
 							</div>
 						</div>
 						<ul class="share clearfix">
-							<li><a href="{{$artist->artist_fb}}"><i class="fa fa-lg fa-facebook"></i></a></li>
-							<li><a href="{{$artist->artist_fb}}"><i class="fa fa-lg fa-twitter"></i></a></li>
-							<li><a href="{{$artist->artist_fb}}"><i class="fa fa-lg fa-flickr"></i></a></li>
-							<li><a href="{{$artist->artist_fb}}"><i class="fa fa-lg fa-google-plus"></i></a></li>
+							<li><a target="_blank" href="{{$artist->artist_fb}}"><i class="fa fa-lg fa-facebook"></i></a></li>
+							<li><a target="_blank" href="{{$artist->artist_fb}}"><i class="fa fa-lg fa-twitter"></i></a></li>
+							<li><a target="_blank" href="{{$artist->artist_fb}}"><i class="fa fa-lg fa-flickr"></i></a></li>
+							<li><a target="_blank" href="{{$artist->artist_fb}}"><i class="fa fa-lg fa-google-plus"></i></a></li>
 						</ul>
 						
 					</div>
 					<div class="col-sm-8 col-md-9">
 						<h3>Biography of Artist</h3>
 						<?php $x =$artist->artist_description ?>
-						<?php echo str_replace( "", "\r\n", $x ); ?>
+						<?php echo str_replace( '', '\r\n', $x ); 
+						?>
+						 <div id="songs">
+							
+						<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/<?php echo $artist->artist_soundcloud; ?>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+
+						</div> 
 					</div>
 					@endforeach
 				</div>
+
 				<div class="row">
-					<div class="col-md-6"><h2>Other <span>Artists</span></h2>@foreach($randomArtistlist as $randartist)
+					<?php if(count($randomArtistlist) > 1 ) { ?>
+					<div class="col-md-6"><h2>Other <span>Artists</span></h2>	
+					@foreach($randomArtistlist as $randartist)
 					<div class="col-sm-6">						
 						<div class="latest-content">
 							<a href="{{ URL::to('/site/viewartist/'.$randartist->id ) }}">
@@ -81,7 +77,7 @@
 										<div class="icon">
 											<i class="fa fa-user"></i>
 										</div><!-- you can change this to anywhere -->
-										<h4><a href="{{ URL::to('/site/viewartist/'.$randartist->id ) }}" >      {{$randartist->artist_name}}</a></h4>
+										<h4><a href="{{ URL::to('/site/viewartist/'.$randartist->id ) }}" > {{$randartist->artist_name}}</a></h4>
 										<p>{{$randartist->artist_title}}</p>
 									</div>
 								</div>
@@ -90,6 +86,9 @@
 					</div>	
 					@endforeach	
 					</div>	
+					<?php } ?>
+
+					<?php if(count($randomAlbumlist) > 1 ) { ?>
 					<div class="col-md-6"><h2>Other <span>Albums</span></h2>
 					@foreach($randomAlbumlist as $randalbum)
 					<div class="col-sm-6">
@@ -97,7 +96,7 @@
 							<a href="{{ URL::to('/site/viewartist/'.$randalbum->id ) }}">
 								<div class="latest-content-image">
 								@if($randalbum->album_art !='')
-									<img src="{{$randalbum->album_art}}" alt="" />
+									<img src="{{asset($randalbum->album_art)}}" alt="" />
 								@else
 								  <img src="{{asset('/images/music1.png')}}" alt="" />
 								@endif
@@ -109,15 +108,19 @@
 											<i class="fa fa-user"></i>
 										</div><!-- you can change this to anywhere -->
 										<h4><a href="{{ URL::to('/site/viewartist/'.$randalbum->id ) }}" >{{$randalbum->album_name}}</a></h4>
-										<br/>
+											<br/>
+										</div>
 									</div>
-								</div>
-							</a>
-						</div>
-					</div>	
+								</a>
+							</div>
+						</div>	
 					@endforeach				
-				</div></div>
-			</div>	
-		</section>
-	</main> 
+				</div>
+			<?php } ?>
+		</div>
+
+
+	</div>	
+</section>
+</main> 
 @endsection

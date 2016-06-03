@@ -38,6 +38,7 @@
         <!-- jQuery  -->
         <script src="{{asset('/js/admin/jquery.min.js')}}"></script>
         <script src="{{asset('/js/admin/bootstrap.min.js')}}"></script>
+        <script src="{{asset('/js/main.js')}}"></script>
        <!-- <script src="{{asset('/js/admin/detect.js')}}"></script>
         <script src="{{asset('/js/admin/fastclick.js')}}"></script>
         <script src="{{asset('/js/admin/jquery.slimscroll.js')}}"></script>

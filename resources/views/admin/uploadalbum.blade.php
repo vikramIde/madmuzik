@@ -53,6 +53,16 @@
 				                      </div>
 									<form class="form-horizontal" role="form" enctype="multipart/form-data"  method="POST" action="{{ url('/admin/uploadalbum') }}"> 
 										 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+										 <div class="form-group">
+											<label for="webSite" class="col-sm-4 control-label">Artist </label>
+											<div class="col-sm-7">
+												<select class="form-control" name="artist" >
+														@foreach($artistList as $artist)
+														 <option value="{{ $artist->id  }}" >{{  $artist->artist_name }}</option>
+														@endforeach
+												</select>
+											</div>
+										</div>
 										<div class="form-group">
 											<label for="inputEmail3" class="col-sm-4 control-label">Album Name</label>
 											<div class="col-sm-7">
@@ -106,7 +116,8 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="hori-pass2" class="col-sm-4 control-label">soundcloud </label>
+											<label for="hori-pass2" class="col-sm-4 control-label">soundcloud ID</label>
+											<span style="font-size: 12px;margin-left: 10px;color: rgb(149, 59, 10);"><a href="https://helgesverre.com/soundcloud/" target="_blank" >To get the ID go to This url and add your user name in the box and click on get id </a></span><br/>
 											<div class="col-sm-7">
 												<input  type="text" name="soundcloud" placeholder="Album soundcloud" class="form-control" >
 											</div>
@@ -143,17 +154,7 @@
 												<textarea name="description"  class="form-control" id="spnotes" ></textarea>
 											</div>
 										</div>
-
-										<div class="form-group">
-											<label for="webSite" class="col-sm-4 control-label">Album Description</label>
-											<div class="col-sm-7">
-												<select class="form-control" name="artist" >
-														@foreach($artistList as $artist)
-														 <option value="{{ $artist->id  }}" >{{  $artist->artist_name }}</option>
-														@endforeach
-												</select>
-											</div>
-										</div>
+										
 										<!-- <div class="form-group">dgfdfgdfgdfg
 											<div class="col-sm-offset-4 col-sm-8">
                                                 <div class="checkbox">

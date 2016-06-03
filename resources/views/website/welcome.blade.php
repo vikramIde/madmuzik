@@ -41,10 +41,10 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="latest-content">
-									<a href="{{ URL::to('/site/featuredArtist/'.$featuredartist->id ) }}">
+									<a href="{{ URL::to('/site/viewartist/'.$featuredartist->id ) }}">
 									<div class="latest-content-image">
 										@if($featuredartist->artist_image !='')
-										<img src="{{$featuredartist->artist_image}}" alt="" />
+										<img src="{{asset($featuredartist->artist_image)}}" alt="" />
 										@else
 									  	<img src="{{asset('/images/music1.png')}}" alt="" />
 										@endif
@@ -56,9 +56,8 @@
 											<div class="icon">
 												<i class="fa fa-headphones"></i>
 											</div>
-											<h4><a href="{{ URL::to('/site/featuredArtist/'.$featuredartist->id ) }}" >{{$featuredartist->artist_name}}</a></h4>
-											</div>
-											<p>{{$featuredartist->artist_description}}</p>
+											<h4><a href="{{ URL::to('/site/viewartist/'.$featuredartist->id ) }}" >{{$featuredartist->artist_name}}</a></h4>
+											</div><p></p>
 										<a href="#" class="view-all"><span>Read More </span><i class="fa fa-angle-double-right view-all-icon"></i> </a>
 										</div>
 									</div>
@@ -73,10 +72,10 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="latest-content">
-									<a href="{{ URL::to('/site/featuredAlbum/'.$featuredalbum->id ) }}">
+									<a href="{{ URL::to('/site/viewalbum/'.$featuredalbum->id ) }}" >
 									<div class="latest-content-image">
 										@if($featuredalbum->album_art !='')
-										<img src="{{$featuredalbum->album_art}}" alt="" />
+										<img src="{{asset($featuredalbum->album_art)}}" alt="" />
 										@else
 									  	<img src="{{asset('/images/music1.png')}}" alt="" />
 										@endif
@@ -88,9 +87,8 @@
 											<div class="icon">
 												<i class="fa fa-music" aria-hidden="true"></i>
 											</div>
-											<h4><a href="{{ URL::to('/site/featuredAlbum/'.$featuredalbum->id ) }}" >{{$featuredalbum->album_name}}</a></h4>
-										</div>
-											<p>{{$featuredalbum->album_description}}	</p>
+											<h4><a href="{{ URL::to('/site/viewalbum/'.$featuredalbum->id ) }}" >{{$featuredalbum->album_name}}</a></h4>
+										</div><p></p>
 											<a href="#" class="view-all"><span>Read More </span><i class="fa fa-angle-double-right view-all-icon"></i> </a>
 										</div>
 									</div>

@@ -30,7 +30,7 @@
 							<a href="{{ URL::to('/site/viewalbum/'.$album->id ) }}">
 								<div class="latest-content-image">
 								@if($album->album_art !='')
-									<img src="{{$album->album_art}}" alt="" />
+									<img src="{{asset($album->album_art)}}" alt="" />
 								@else
 								  <img src="{{asset('/images/music1.png')}}" alt="" />
 								@endif

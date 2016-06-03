@@ -29,15 +29,15 @@
 									<p class="text-muted font-13 m-b-30">
 	                                </p>
 	                                 @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                          <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                            <ul>
-                              @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                              @endforeach
-                            </ul>
-                        </div>
-                      @endif
+				                        <div class="alert alert-danger">
+				                          <strong>Whoops!</strong> There were some problems with your input.<br><br>
+				                            <ul>
+				                              @foreach ($errors->all() as $error)
+				                                <li>{{ $error }}</li>
+				                              @endforeach
+				                            </ul>
+				                        </div>
+				                      @endif
 
 			                      <div class="flash-message">
 			                        @foreach (['danger', 'warning', 'success', 'info'] as $msg)
@@ -66,9 +66,10 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label  class="col-sm-4 control-label">Artist Sound Cloud</label>
+											<label for="hori-pass2" class="col-sm-4 control-label">soundcloud ID</label>
+											<span style="font-size: 12px;margin-left: 10px;color: rgb(149, 59, 10);"><a href="https://helgesverre.com/soundcloud/" target="_blank" >To get the ID go to This url and add your user name in the box and click on get id </a></span><br/>
 											<div class="col-sm-7">
-												<input  type="text" value="{{old('title')}}" name="soundcloud" placeholder="Artist Title" class="form-control" >
+												<input  type="text" name="soundcloud" placeholder="Artist Title" value="{{old('soundcloud')}}" class="form-control" >
 											</div>
 										</div>
 										<div class="form-group">

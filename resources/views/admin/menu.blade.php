@@ -47,27 +47,32 @@
                         	<li class="text-muted menu-title">Navigation</li>
 
                             <li class="has_sub">
-                                <a href="/admin/home" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> </a>
+                                <a href="/admin/home" class="waves-effect <?php if(Session::get('activemenu') == 'dashboard' ) echo 'active' ;?>"><i class="ti-home"></i> <span> Dashboard </span> </a>
                                 
                             </li>
 
                             <li class="has_sub">
-                                <a href="/admin/listartist" class="waves-effect"><i class="ti-paint-bucket"></i> <span> List Artist </span> </a>
+                                <a href="/admin/listartist" class="waves-effect <?php if(Session::get('activemenu') == 'listartists' ) echo 'active' ;?>"><i class="ti-paint-bucket"></i> <span> List Artist </span> </a>
                                 
                             </li>
 
                             <li class="has_sub">
-                                <a href="/admin/listalbum" class="waves-effect"><i class="ti-light-bulb"></i><span> List Albums </span> </a>
+                                <a href="/admin/listalbum" class="waves-effect <?php if(Session::get('activemenu') == 'listalbums' ) echo 'active' ;?>"><i class="ti-light-bulb"></i><span> List Albums </span> </a>
                                 
                             </li>
 
                             <li class="has_sub">
-                                <a href="/admin/uploadartist" class="waves-effect"><i class="ti-spray"></i> <span> Upload Artist  </span> </a>
+                                <a href="/admin/uploadartist" class="waves-effect <?php if(Session::get('activemenu') == 'uploadartist' ) echo 'active' ;?>"><i class="ti-spray"></i> <span> Upload Artist  </span> </a>
                                 
                             </li>
 
                             <li class="has_sub">
-                                <a href="/admin/uploadalbum" class="waves-effect active subdrop"><i class="ti-pencil-alt"></i><span> Upload Album </span></a>
+                                <a href="/admin/uploadalbum" class="waves-effect <?php if(Session::get('activemenu') == 'uploadalbum' ) echo 'active' ;?> "><i class="ti-pencil-alt"></i><span> Upload Album </span></a>
+                                
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="/admin/adduser" class="waves-effect <?php if(Session::get('activemenu') == 'adduser' ) echo 'active' ;?> "><i class="ti-pencil-alt"></i><span> Add User</span></a>
                                 
                             </li>
 

@@ -23,20 +23,46 @@
 				</div>
 
 				<div class="row">
+
 					<div class="col-sm-6">
+					  @if (count($errors) > 0)
+				                        <div class="alert alert-danger">
+				                          <strong>Whoops!</strong> There were some problems with your input.<br><br>
+				                            <ul>
+				                              @foreach ($errors->all() as $error)
+				                                <li>{{ $error }}</li>
+				                              @endforeach
+				                            </ul>
+				                        </div>
+				                      @endif
+
+			                      <div class="flash-message">
+			                        @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+			                          @if(Session::has('alert-' . $msg))
+
+			                              <p class="alert alert-{{ $msg }}">
+			                                {{ Session::get('alert-' . $msg) }} 
+			                                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;
+			                                </a>
+			                              </p>
+			                          @endif
+			                        @endforeach
+			                      </div>
 						<h2>Send us a message</h2>
-						<form action="mail.php" method="post" name="contact-form" id="contact-form">
+						<form action="{{ url('/site/connect') }}" method="post" name="form-horizontal contact-form" >
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 							<label for="name">Your Name <span>*</span></label>
-							<input type="text" name="name" id="name" value="" required />
+							<input type="text" name="name" class="form-control" value="" required />
 							<label for="email">Your E-Mail <span>*</span></label>
-							<input type="email" name="email" id="email" value="" required />
+							<input type="email" name="email" class="form-control"id="email" value="" required />
 							<label for="email">Subject</label>
-							<input type="text" name="subject" id="subject" value="" />
+							<input type="text" name="subject" class="form-control" id="subject" value="" />
 							<label for="message">Your Message</label>
-							<textarea name="message" id="message"></textarea>
+							<textarea name="message" class="form-control" id="message"></textarea>
+							<br/>
 							<div class="row">
 								<div class="col-sm-6">
-									<input type="submit" name="sendmessage" id="sendmessage" value="Send Message" />
+									<input type="submit" name="sendmessage"  class="form-control" value="Send Message" />
 								</div>
 								<div class="col-sm-6 dynamic"></div>
 							</div>

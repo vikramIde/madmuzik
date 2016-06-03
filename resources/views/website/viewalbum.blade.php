@@ -20,17 +20,16 @@
 					<div class="row event-info">
 					@foreach($albumDetails as $album)
 					<div class="banner-image col-md-7">
-						<img src="{{$album->album_mainart}}" style="" alt="" class="img-responsive" style="padding:20px;"/>
+						<img src="{{ asset( $album->album_mainart) }}" style="" alt="" class="img-responsive" style="padding:20px;"/>
 					</div>
 					<div class="col-sm-5" style="padding:20px;">
 						<h3 class="event-details">Details</h3>
 						<dl class="dl-horizontal">
 							<dt>Album Name</dt><dd>{{$album->album_name}}</dd>
-							<dt>Release Date :</dt>    			<dd>{{$album->album_release_date}}</dd>
-							<dt>Compiled By :</dt>    			<dd>{{$album->album_compiled_by}}</dd>
-							<dt>Mastering :</dt>     		<dd>{{$album->album_mastering}}</dd>
-							<dt>Artwork :</dt>    		<dd>{{$album->album_artwork}}</dd>
-							<dt>Description :</dt>     		<dd>{{$album->	album_description}}</dd>
+							<dt>Release Date :</dt><dd>{{$album->album_release_date}}</dd>
+							<dt>Compiled By :</dt><dd>{{$album->album_compiled_by}}</dd>
+							<dt>Mastering :</dt><dd>{{$album->album_mastering}}</dd>
+							<dt>Artwork :</dt><dd>{{$album->album_artwork}}</dd>
 							<br/><div class="artist-info" style="margin-top:20px;"><ul class="share clearfix">
 							<li><a href="{{$album->album_facebook}}"><i class="fa fa-lg fa-facebook"></i></a></li>
 							<li><a href="{{$album->album_facebook}}"><i class="fa fa-lg fa-twitter"></i></a></li>
@@ -51,12 +50,13 @@
 				<div class="row album-info">
 					<div class="col-xs-12 col-md-9 col-md-offset-1">
 						<h3>Album Description</h3>
-						<p>Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie.</p>
-						<p>Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie.</p>
-						
-						 <div id="songs">
-							<h4>Album Tracks <span>6 Tracks In Total</span></h4>
-							<iframe width="100%" height="450" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F1696284&amp;auto_play=false&amp;show_artwork=true&amp;color=bfbfbf"></iframe>
+						<?php $x =$album->album_description ?>
+						<?php echo str_replace( '', '\r\n', $x ); 
+						?>
+					 <div id="songs">
+							
+						<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/<?php echo $album->album_soundcloud; ?>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+
 						</div> 
 					</div>
 				</div>
@@ -70,7 +70,7 @@
 							<a href="{{ URL::to('/site/viewartist/'.$randalbum->id ) }}">
 								<div class="latest-content-image">
 								@if($randalbum->album_art !='')
-									<img src="{{$randalbum->album_art}}" alt="" />
+									<img src="{{ asset($randalbum->album_art )}}" alt="" />
 								@else
 								  <img src="{{asset('/images/music1.png')}}" alt="" />
 								@endif
@@ -81,7 +81,7 @@
 										<div class="icon">
 											<i class="fa fa-user"></i>
 										</div><!-- you can change this to anywhere -->
-										<h4><a href="{{ URL::to('/site/viewartist/'.$randalbum->id ) }}" >{{$randalbum->album_name}}</a></h4>
+										<h4><a href="{{ URL::to('/site/viewalbum/'.$randalbum->id ) }}" >{{$randalbum->album_name}}</a></h4>
 										<br/>
 									</div>
 								</div>
@@ -98,7 +98,7 @@
 							<a href="{{ URL::to('/site/viewartist/'.$randartist->id ) }}">
 								<div class="latest-content-image">
 								@if($randartist->artist_image !='')
-									<img src="{{$randartist->artist_image}}" alt="" />
+									<img src="{{asset($randartist->artist_image)}}" alt="" />
 								@else
 								  <img src="{{asset('/images/music1.png')}}" alt="" />
 								@endif

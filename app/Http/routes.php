@@ -24,7 +24,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::controller('admin', 'AdminController');
 
 
-	Route::get('/', 'WebsiteController@getHome');
+	Route::get('/', 'WebsiteController@getIndex');
 
 	Route::get('myname', function(){
 
